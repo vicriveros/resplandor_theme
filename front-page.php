@@ -69,147 +69,102 @@ get_header();
 
     <div class="res-grid">
 
-      <!-- Card -->
-      <article class="res-card">
-        <!-- Badge -->
-        <span class="res-badge res-badge--sale">Oferta</span>
+      <?php
+      $args = array(
+          'post_type'      => 'product',
+          'posts_per_page' => 4,
+          'tax_query'      => array(
+              array(
+                  'taxonomy' => 'product_visibility',
+                  'field'    => 'name',
+                  'terms'    => 'featured',
+                  'operator' => 'IN',
+              ),
+          ),
+      );
+      $featured_query = new WP_Query( $args );
 
-        <!-- Imagen clickeable -->
-        <div class="res-card__media">
-          <a href="producto_detalle.html" class="res-card__link">
-            <img
-              src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/limpiador_desengrasante_resplandor.png"
-              alt="Limpiador Desengrasante Resplandor"
-            />
-          </a>
-        </div>
+      if ( $featured_query->have_posts() ) :
+          while ( $featured_query->have_posts() ) : $featured_query->the_post();
+              global $product;
+              
+              // Check if product is on sale
+              $is_on_sale = $product->is_on_sale();
+              $badge_text = $is_on_sale ? 'Oferta' : 'Destacado';
+              $badge_class = $is_on_sale ? 'res-badge res-badge--sale' : 'res-badge';
+              
+              // Prices
+              $regular_price = $product->get_regular_price();
+              $sale_price    = $product->get_sale_price();
+              $price_html    = '';
+              if ( $is_on_sale && $regular_price && $sale_price ) {
+                  $price_html .= '<span class="res-price__old">' . wc_price( $regular_price ) . '</span>';
+                  $price_html .= '<span class="res-price__new">' . wc_price( $sale_price ) . '</span>';
+              } else {
+                  $price_html .= '<span class="res-price__new">' . $product->get_price_html() . '</span>';
+              }
+              
+              // Thumbnail
+              $image_url = get_the_post_thumbnail_url( $product->get_id(), 'woocommerce_thumbnail' );
+              if ( ! $image_url ) {
+                  $image_url = wc_placeholder_img_src();
+              }
+              ?>
+              <!-- Card -->
+              <article <?php wc_product_class( 'res-card', $product ); ?>>
+                <!-- Badge -->
+                <span class="<?php echo esc_attr( $badge_class ); ?>"><?php echo esc_html( $badge_text ); ?></span>
 
-        <div class="res-card__body">
-          <h3 class="res-card__name">Limpiador Desengrasante</h3>
+                <!-- Imagen clickeable -->
+                <div class="res-card__media">
+                  <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="res-card__link">
+                    <img
+                      src="<?php echo esc_url( $image_url ); ?>"
+                      alt="<?php echo esc_attr( $product->get_name() ); ?>"
+                    />
+                  </a>
+                </div>
 
-          <div class="res-card__row">
-            <div class="res-price">
-              <span class="res-price__old">Gs. 18.500</span>
-              <span class="res-price__new">Gs. 14.500</span>
-            </div>
+                <div class="res-card__body">
+                  <h3 class="res-card__name"><?php echo esc_html( $product->get_name() ); ?></h3>
 
-            <button class="res-cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
-            </button>
-          </div>
-        </div>
-      </article>
+                  <div class="res-card__row">
+                    <div class="res-price">
+                      <?php echo wp_kses_post( $price_html ); ?>
+                    </div>
 
-      <!-- Card -->
-      <article class="res-card">
-        <span class="res-badge">Destacado</span>
-
-        <!-- Imagen clickeable -->
-        <div class="res-card__media">
-          <a href="producto_detalle.html" class="res-card__link">
-            <img
-              src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/limpia_vidrios_resplandor.png"
-              alt="Limpia Vidrios Resplandor"
-            />
-          </a>
-        </div>
-
-        <div class="res-card__body">
-          <h3 class="res-card__name">Limpia Vidrios</h3>
-
-          <div class="res-card__row">
-            <div class="res-price">
-              <span class="res-price__old">Gs. 16.500</span>
-              <span class="res-price__new">Gs. 15.000</span>
-            </div>
-
-            <button class="res-cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card -->
-      <article class="res-card">
-        <span class="res-badge res-badge--sale">Oferta</span>
-
-        <!-- Imagen clickeable -->
-        <div class="res-card__media">
-          <a href="producto_detalle.html" class="res-card__link">
-            <img
-              src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/detergente_frutilla_resplandor.png"
-              alt="Detergente Resplandor"
-            />
-          </a>
-        </div>
-        <div class="res-card__body">
-          <h3 class="res-card__name">Detergente Resplandor 500ml</h3>
-
-          <div class="res-card__row">
-            <div class="res-price">
-              <span class="res-price__old">Gs. 6.500</span>
-              <span class="res-price__new">Gs. 5.000</span>
-            </div>
-
-            <button class="res-cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card -->
-      <article class="res-card">
-        <span class="res-badge res-badge--sale">Oferta</span>
-
-        <div class="res-card__media">
-          <a href="producto_detalle.html" class="res-card__link">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/jabon_de_coco_puro_resplandor.png" alt="Jabón de Coco" />
-          </a>
-        </div>
-
-        <div class="res-card__body">
-          <h3 class="res-card__name">Jabón de Coco Puro</h3>
-
-          <div class="res-card__row">
-            <div class="res-price">
-              <span class="res-price__old">Gs. 6.000</span>
-              <span class="res-price__new">Gs. 4.900</span>
-            </div>
-
-            <button class="res-cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card -->
-      <article class="res-card">
-        <span class="res-badge">Destacado</span>
-
-        <div class="res-card__media">
-          <a href="producto_detalle.html" class="res-card__link">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/desodorante_de_ambiente_uva_resplandor.png" alt="Desodorante de Ambiente" />
-          </a>
-        </div>
-
-        <div class="res-card__body">
-          <h3 class="res-card__name">Desodorante de Ambiente UVA 1L</h3>
-
-          <div class="res-card__row">
-            <div class="res-price">
-              <span class="res-price__old">Gs. 9.500</span>
-              <span class="res-price__new">Gs. 8.500</span>
-            </div>
-
-            <button class="res-cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
-            </button>
-          </div>
-        </div>
-      </article>
+                    <?php
+                    // Set up Add to Cart URL and Classes
+                    $add_to_cart_url = $product->add_to_cart_url();
+                    
+                    // Specific WooCommerce classes needed for AJAX functionality
+                    $add_to_cart_classes = array(
+                      'res-cart',
+                      'button',
+                      'product_type_' . $product->get_type(),
+                      $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+                      $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
+                    );
+                    ?>
+                    <a href="<?php echo esc_url( $add_to_cart_url ); ?>"
+                       data-quantity="1"
+                       class="<?php echo esc_attr( implode( ' ', array_filter( $add_to_cart_classes ) ) ); ?>"
+                       data-product_id="<?php echo get_the_ID(); ?>"
+                       data-product_sku="<?php echo esc_attr( $product->get_sku() ); ?>"
+                       aria-label="<?php echo esc_attr( $product->add_to_cart_description() ); ?>"
+                       rel="nofollow">
+                      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+              <?php
+          endwhile;
+          wp_reset_postdata();
+      else :
+          echo '<p>No hay productos destacados por el momento.</p>';
+      endif;
+      ?>
 
     </div>
   </div>
@@ -231,27 +186,38 @@ get_header();
 
       <div class="res-partners__viewport">
         <div class="res-partners__track">
-          <div class="res-partners__item">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/marca_resplandor.png" alt="Resplandor" />
-          </div>
-          <div class="res-partners__item">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/marca_monarca.png" alt="Monarca" />
-          </div>
-          <div class="res-partners__item">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/marca_megabril.png" alt="Megabril" />
-          </div>
-          <div class="res-partners__item">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/marca_clorimax.png" alt="Clorimax" />
-          </div>
-          <div class="res-partners__item">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/marca_bang.png" alt="Bang" />
-          </div>
-          <div class="res-partners__item">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/marca_guari.png" alt="Guari" />
-          </div>
-          <div class="res-partners__item">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/marca_karam.png" alt="Karam" />
-          </div>
+
+          <?php
+          $brand_terms = get_terms( array(
+              'taxonomy'   => 'product_brand',
+              'hide_empty' => true,
+          ) );
+
+          if ( ! empty( $brand_terms ) && ! is_wp_error( $brand_terms ) ) {
+              foreach ( $brand_terms as $brand ) {
+                  // Get the thumbnail if WooCommerce Brands or similar is used.
+                  // Usually stored in term meta 'thumbnail_id'
+                  $thumbnail_id = get_term_meta( $brand->term_id, 'thumbnail_id', true );
+                  if ( $thumbnail_id ) {
+                      $image_url = wp_get_attachment_url( $thumbnail_id );
+                  } else {
+                      $image_url = wc_placeholder_img_src();
+                  }
+                  
+                  // Wrap in link to the brand archive
+                  $brand_link = get_term_link( $brand );
+                  ?>
+                  <div class="res-partners__item">
+                    <a href="<?php echo esc_url( $brand_link ); ?>" aria-label="<?php echo esc_attr( $brand->name ); ?>">
+                      <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $brand->name ); ?>" />
+                    </a>
+                  </div>
+                  <?php
+              }
+          } else {
+              echo '<p>No se encontraron marcas.</p>';
+          }
+          ?>
         </div>
       </div>
 
@@ -277,154 +243,94 @@ get_header();
     </header>
 
     <div class="res-featured__grid">
-      <!-- Card -->
-      <article class="res-fcard">
-        <!-- Media -->
-        <div class="res-fcard__media">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/portada_limpiavidrios_resplandor.png" alt="Limpiavidrios Resplandor">
-          <span class="res-fcard__badge">Uso diario</span>
-        </div>
+      <?php
+      $args = array(
+          'post_type'      => 'product',
+          'posts_per_page' => 4,
+          'product_cat'    => 'linea-hogar',
+      );
+      $hogar_query = new WP_Query( $args );
 
-        <!-- Body -->
-        <div class="res-fcard__body">
-          <div class="res-fcard__top">
-            <h3 class="res-fcard__name">Limpiavidrios</h3>
-          </div>
+      if ( $hogar_query->have_posts() ) :
+          while ( $hogar_query->have_posts() ) : $hogar_query->the_post();
+              global $product;
+              
+              // Thumbnail
+              $image_url = get_the_post_thumbnail_url( $product->get_id(), 'woocommerce_thumbnail' );
+              if ( ! $image_url ) {
+                  $image_url = wc_placeholder_img_src();
+              }
+              ?>
+              <!-- Card -->
+              <article <?php wc_product_class( 'res-fcard', $product ); ?>>
+                <!-- Media -->
+                <div class="res-fcard__media">
+                  <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+                    <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>">
+                  </a>
+                  <span class="res-fcard__badge">Uso diario</span>
+                </div>
 
-          <p class="res-fcard__desc">
-            Limpieza efectiva con brillo sin marcas. Secado rápido para vidrios, espejos y vitrinas.
-          </p>
+                <!-- Body -->
+                <div class="res-fcard__body">
+                  <div class="res-fcard__top">
+                    <h3 class="res-fcard__name">
+                      <a href="<?php echo esc_url( $product->get_permalink() ); ?>"><?php echo esc_html( $product->get_name() ); ?></a>
+                    </h3>
+                  </div>
 
-          <div class="res-fcard__meta">
-            <span class="res-fcard__price">Gs. 15.000</span>
-          </div>
+                  <div class="res-fcard__desc">
+                    <?php 
+                      if ( has_excerpt() ) {
+                          echo wp_kses_post( wpautop( get_the_excerpt() ) ); 
+                      } else {
+                          echo wp_kses_post( wpautop( wp_trim_words( get_the_content(), 15, '...' ) ) );
+                      }
+                    ?>
+                  </div>
 
-          <!-- ACCIONES -->
-          <div class="res-fcard__actions">
-            <!-- BOTÓN VER DETALLE (YA ESTILADO EN web.css) -->
-            <a href="producto_detalle.html" class="res-fcard__cta">
-              Ver detalle
-            </a>
+                  <div class="res-fcard__meta">
+                    <span class="res-fcard__price"><?php echo $product->get_price_html(); ?></span>
+                  </div>
 
-            <!-- BOTÓN CARRITO -->
-            <button class="res-fcard__cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" alt="">
-            </button>
-          </div>
-        </div>
-      </article>
+                  <!-- ACCIONES -->
+                  <div class="res-fcard__actions">
+                    <!-- BOTÓN VER DETALLE -->
+                    <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="res-fcard__cta">
+                      Ver detalle
+                    </a>
 
-      <!-- Card -->
-      <article class="res-fcard">
-        <!-- Media -->
-        <div class="res-fcard__media">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/portada_desodorande_pisos_resplandor.png" alt="Desodorante de Ambiente">
-          <span class="res-fcard__badge">Uso diario</span>
-        </div>
-
-        <!-- Body -->
-        <div class="res-fcard__body">
-          <div class="res-fcard__top">
-            <h3 class="res-fcard__name">Desodorante de Ambiente UVA 1L</h3>
-          </div>
-
-          <p class="res-fcard__desc">
-            Neutraliza olores y deja un aroma agradable y duradero. Ideal para ambientes y superficies de alto tránsito.
-          </p>
-
-          <div class="res-fcard__meta">
-            <span class="res-fcard__price">Gs. 8.500</span>
-          </div>
-
-          <!-- ACCIONES -->
-          <div class="res-fcard__actions">
-            <!-- BOTÓN VER DETALLE (YA ESTILADO EN web.css) -->
-            <a href="producto_detalle.html" class="res-fcard__cta">
-              Ver detalle
-            </a>
-
-            <!-- BOTÓN CARRITO -->
-            <button class="res-fcard__cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" alt="">
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card -->
-      <article class="res-fcard">
-        <!-- Media -->
-        <div class="res-fcard__media">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/portada_detergente_resplandor.png" alt="Detergente Resplandor">
-          <span class="res-fcard__badge">Uso diario</span>
-        </div>
-
-        <!-- Body -->
-        <div class="res-fcard__body">
-          <div class="res-fcard__top">
-            <h3 class="res-fcard__name">Detergente Resplandor 500ml</h3>
-          </div>
-
-          <p class="res-fcard__desc">
-            Fórmula concentrada para el lavado diario. Remueve grasa y suciedad con eficacia, cuidando tus utensilios.
-          </p>
-
-          <div class="res-fcard__meta">
-            <span class="res-fcard__price">Gs. 5.000</span>
-          </div>
-
-          <!-- ACCIONES -->
-          <div class="res-fcard__actions">
-            <!-- BOTÓN VER DETALLE (YA ESTILADO EN web.css) -->
-            <a href="producto_detalle.html" class="res-fcard__cta">
-              Ver detalle
-            </a>
-
-            <!-- BOTÓN CARRITO -->
-            <button class="res-fcard__cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" alt="">
-            </button>
-          </div>
-        </div>
-      </article>
-
-
-      <!-- Card -->
-      <article class="res-fcard">
-        <!-- Media -->
-        <div class="res-fcard__media">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/portada_aromatizante_resplandor.png" alt="Aromatizador de Ambientes">
-          <span class="res-fcard__badge">Uso diario</span>
-        </div>
-
-        <!-- Body -->
-        <div class="res-fcard__body">
-          <div class="res-fcard__top">
-            <h3 class="res-fcard__name">Aromatizador de Ambientes Menta y Limon</h3>
-          </div>
-
-          <p class="res-fcard__desc">
-            Fragancia fresca y revitalizante que perfuma y renueva el ambiente. Uso doméstico e institucional.
-          </p>
-
-          <div class="res-fcard__meta">
-            <span class="res-fcard__price">Gs. 14.500</span>
-          </div>
-
-          <!-- ACCIONES -->
-          <div class="res-fcard__actions">
-            <!-- BOTÓN VER DETALLE (YA ESTILADO EN web.css) -->
-            <a href="producto_detalle.html" class="res-fcard__cta">
-              Ver detalle
-            </a>
-
-            <!-- BOTÓN CARRITO -->
-            <button class="res-fcard__cart" aria-label="Agregar al carrito">
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" alt="">
-            </button>
-          </div>
-        </div>
-      </article>      
+                    <!-- BOTÓN CARRITO -->
+                    <?php
+                    $add_to_cart_url = $product->add_to_cart_url();
+                    
+                    $add_to_cart_classes = array(
+                      'res-fcard__cart',
+                      'button',
+                      'product_type_' . $product->get_type(),
+                      $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+                      $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
+                    );
+                    ?>
+                    <a href="<?php echo esc_url( $add_to_cart_url ); ?>"
+                       data-quantity="1"
+                       class="<?php echo esc_attr( implode( ' ', array_filter( $add_to_cart_classes ) ) ); ?>"
+                       data-product_id="<?php echo get_the_ID(); ?>"
+                       data-product_sku="<?php echo esc_attr( $product->get_sku() ); ?>"
+                       aria-label="<?php echo esc_attr( $product->add_to_cart_description() ); ?>"
+                       rel="nofollow">
+                      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" alt="">
+                    </a>
+                  </div>
+                </div>
+              </article>
+              <?php
+          endwhile;
+          wp_reset_postdata();
+      else :
+          echo '<p>No hay productos en esta categoría por el momento.</p>';
+      endif;
+      ?>      
 
     </div>
   </div>
