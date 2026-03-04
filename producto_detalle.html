@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resplandor</title>
+  <link rel="icon" href="favicon.png">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            res: {
+              green: "#00a651",
+              gray: "#ceced0",
+              text: "#555555"
+            }
+          },
+          boxShadow: {
+            soft: "0 8px 24px rgba(0,0,0,.08)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/web.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header id="res-navbar" class="fixed top-0 left-0 right-0 z-50 bg-white">
+    <!-- TOPBAR -->
+    <div data-topbar class="nav-ease bg-res-green text-white">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="flex items-center justify-between py-2 text-sm">
+          <span class="font-medium">Obtené un 10% de descuento en tu primera compra!</span>
+          <nav class="hidden md:flex gap-8 font-medium">
+            <a href="catalogo_resplandor.pdf" target="_blank">Catálogos</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contactos.html">Contactos</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN BAR (RESPONSIVE) -->
+<!-- MAIN BAR -->
+<div class="border-b border-res-gray/60">
+  <div class="mx-auto max-w-7xl px-4">
+    <div id="mainbar" class="nav-ease py-3 lg:py-4">
+
+      <!-- MOBILE -->
+      <div class="mobile-topbar lg:hidden">
+        <!-- Menú -->
+      <button
+        id="menuToggleDesk"
+        data-drawer-open
+        class="icon-btn"
+        type="button"
+        aria-label="Menú"
+        aria-controls="sideDrawer"
+        aria-expanded="false"
+      >
+        <img src="./img/red.svg" alt="Menú" class="icon-svg" />
+      </button>
+
+        <!-- Logo centrado -->
+        <a href="index.html" class="mobile-logo" aria-label="Inicio">
+          <img src="./img/logo_resplandor.png" alt="Grupo Resplandor" class="logo-resplandor" />
+        </a>
+
+        <!-- Acciones -->
+        <div class="mobile-actions">
+          <!-- Buscar -->
+          <button id="searchToggle" class="icon-btn" type="button" aria-label="Buscar">
+            <img src="./img/buscar.svg" alt="" aria-hidden="true" class="icon-svg" />
+          </button>
+
+          <!-- Carrito -->
+          <button class="icon-btn cart-btn" type="button" aria-label="Carrito">
+            <span class="cart-badge">3</span>
+            <img src="./img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" />
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE: buscador desplegable (solo cuando se activa) -->
+      <div id="mobileSearch" class="mobile-search lg:hidden" hidden>
+        <input
+          type="search"
+          placeholder="Buscá tu producto aquí…"
+          class="search-input w-full px-5 py-3 text-res-text placeholder:text-res-text/50"
+        />
+      </div>
+
+      <!-- DESKTOP: fila normal (logo - buscador - botones) -->
+      <div class="hidden lg:flex lg:items-center lg:gap-4">
+        <a href="index.html" class="flex items-center gap-3 shrink-0">
+          <img src="./img/logo_resplandor.png" alt="Grupo Resplandor" class="logo-resplandor" />
+        </a>
+
+        <div class="flex justify-center flex-1">
+          <div class="w-full max-w-[1000px]">
+            <input
+              type="search"
+              placeholder="Buscá tu producto aquí…"
+              class="search-input w-full px-6 py-3 text-res-text placeholder:text-res-text/50"
+            />
+          </div>
+        </div>
+
+        <div class="flex items-center gap-5 shrink-0">
+          <button
+            id="menuToggleDesktop"
+            class="icon-btn"
+            type="button"
+            aria-label="Menú"
+            aria-controls="sideDrawer"
+            aria-expanded="false"
+            data-drawer-open
+          >
+            <img src="./img/red.svg" alt="Menú" class="icon-svg" />
+          </button>
+
+          <button class="icon-btn cart-btn" type="button" aria-label="Carrito">
+            <span class="cart-badge">3</span>
+            <img src="./img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" />
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- MENÚ HORIZONTAL (DESKTOP) -->
+    <div data-menubar class="border-b border-res-gray/60 hidden lg:block">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="flex items-center justify-between py-4">
+          <nav class="nav-main flex items-center gap-10 text-res-text font-medium">
+            <a href="inicio.html">Inicio</a>
+
+            <!-- Categorías con dropdown -->
+            <div class="nav-dropdown">
+              <button class="nav-link" type="button" aria-expanded="false">
+                Categorías
+                <svg class="nav-caret" width="12" height="12" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+
+              <div class="dropdown-menu">
+                <a href="linea-hogar.html">Línea Hogar</a>
+                <a href="linea-prendas.html">Línea Prendas</a>
+                <a href="linea-desinfeccion.html">Línea Desinfección</a>
+                <a href="linea-automotiva.html">Línea Automotiva</a>
+                <a href="linea-piscinas.html">Línea Piscinas</a>
+                <a href="linea-ferreteria.html">Línea Ferretería</a>
+                <a href="linea-bazar.html">Línea Bazar</a>
+              </div>
+            </div>
+
+            <a href="marcas.html">Marcas</a>
+            <a href="nosotros.html">Sobre nosotros</a>
+            <a href="ofertas.html">Ofertas</a>
+          </nav>
+
+          <div class="hidden xl:flex gap-10">
+            <div>
+              <strong>Llamanos</strong><br>(+595 21) 328 5079
+            </div>
+            <div>
+              <strong>Escribinos</strong><br>info@resplandor.com.py
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="nav-spacer" aria-hidden="true"></div>
+
+
+
+  <!-- MENÚ VERTICAL -->
+  <div id="drawerOverlay" class="drawer-overlay" hidden></div>
+
+  <aside id="sideDrawer" class="drawer" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <div class="drawer-header-center">
+        <img src="./img/logo_resplandor.png" alt="Grupo Resplandor" class="drawer-logo" />
+      </div>
+
+      <button id="drawerClose" class="drawer-close" type="button" aria-label="Cerrar menú">
+        ✕
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Menú principal">
+
+<div class="drawer-mobile-only">
+  <a href="inicio.html" class="drawer-link">
+    <img src="./img/bala.svg" class="drawer-icon" alt="" aria-hidden="true" />
+    <span>Inicio</span>
+  </a>
+
+  <a href="marcas.html" class="drawer-link">
+    <img src="./img/bala.svg" class="drawer-icon" alt="" aria-hidden="true" />
+    <span>Marcas</span>
+  </a>
+
+  <a href="nosotros.html" class="drawer-link">
+    <img src="./img/bala.svg" class="drawer-icon" alt="" aria-hidden="true" />
+    <span>Sobre nosotros</span>
+  </a>
+
+  <a href="ofertas.html" class="drawer-link">
+    <img src="./img/bala.svg" class="drawer-icon" alt="" aria-hidden="true" />
+    <span>Ofertas</span>
+  </a>
+
+  <hr class="drawer-sep" />
+</div>
+
+
+
+
+
+      <a href="linea-hogar.html" class="drawer-link">
+        <img src="./img/Hogar.svg" alt="" class="drawer-icon" />
+        <span>Línea Hogar</span>
+      </a>
+
+      <a href="linea-prendas.html" class="drawer-link">
+        <img src="./img/Prendas.svg" alt="" class="drawer-icon" />
+        <span>Línea Prendas</span>
+      </a>
+
+      <a href="linea-desinfeccion.html" class="drawer-link">
+        <img src="./img/Desinfeccion.svg" alt="" class="drawer-icon" />
+        <span>Línea Desinfección</span>
+      </a>
+
+      <a href="linea-automotiva.html" class="drawer-link">
+        <img src="./img/Automotiva.svg" alt="" class="drawer-icon" />
+        <span>Línea Automotiva</span>
+      </a>
+
+      <a href="linea-piscinas.html" class="drawer-link">
+        <img src="./img/Piscinas.svg" alt="" class="drawer-icon" />
+        <span>Línea Piscinas</span>
+      </a>
+
+      <a href="linea-bazar.html" class="drawer-link">
+        <img src="./img/Bazar.svg" alt="" class="drawer-icon" />
+        <span>Línea Bazar</span>
+      </a>
+    </nav>
+
+    <div class="drawer-footer">
+      <p>
+        © <span id="drawerYear"></span>
+        <strong>Grupo Resplandor</strong><br>
+        Todos los derechos reservados
+      </p>
+    </div>
+  </aside>
+
+
+
+
+
+
+
+
+<!-- =========================
+  DETALLES DEL PRODUCTO 
+========================= -->
+
+
+
+
+<section class="bg-neutral-50">
+  <!-- Header / Breadcrumb -->
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-res-green/95 via-res-green to-res-green/90"></div>
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_30%,white_0%,transparent_40%),radial-gradient(circle_at_85%_25%,white_0%,transparent_45%),radial-gradient(circle_at_60%_90%,white_0%,transparent_45%)]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-12">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+        Detalles del producto
+      </h1>
+
+      <nav class="mt-3 text-sm text-white/85">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a class="hover:text-white" href="#">Inicio</a></li>
+          <li class="text-white/60">›</li>
+          <li><a class="hover:text-white" href="#">Productos</a></li>
+          <li class="text-white/60">›</li>
+          <li><a class="hover:text-white" href="#">Línea Hogar</a></li>
+          <li class="text-white/60">›</li>
+          <li class="text-white font-medium">Detergente Resplandor 500ml</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="mx-auto max-w-7xl px-4 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+      <!-- GALERÍA -->
+      <div class="bg-white rounded-2xl shadow-soft border border-res-gray/40 overflow-hidden">
+        <div class="p-4 sm:p-6">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center rounded-full bg-res-green/10 text-res-green border border-res-green/20 px-3 py-1 text-xs font-semibold">
+              Destacado
+            </span>
+
+            <span class="text-xs text-res-text/70">
+              Código: <strong class="text-res-text">RSP-DET-500</strong>
+            </span>
+          </div>
+
+
+<!-- Imagen principal -->
+<div class="mt-5 rounded-2xl bg-white border border-res-gray/40 p-6 sm:p-8 flex items-center justify-center relative">
+
+
+  <img
+    id="productMainImage"
+    src="./img/detergente_frutilla_resplandor.png"
+    alt="Detergente Resplandor 500ml"
+    class="w-full max-w-[520px] lg:max-w-[560px] h-auto object-contain transition-all duration-300"
+    loading="lazy"
+    decoding="async"
+  />
+
+
+</div>
+
+<!-- Thumbs (strip scrolleable) -->
+<div class="mt-5">
+  <div class="res-gal__thumbs" data-gal-thumbs>
+    <button type="button" class="res-thumb is-active" aria-label="Miniatura 1">
+      <img src="./img/detergente_frutilla_resplandor.png" alt="Miniatura 1" class="w-full h-full object-cover" />
+    </button>
+
+    <button type="button" class="res-thumb" aria-label="Miniatura 2">
+      <img src="./img/portada_detergente_frutilla_resplandor.png" alt="Miniatura 2" class="w-full h-full object-cover" />
+    </button>
+
+    <!-- Agregá más thumbs aquí (la JS las detecta sola) -->
+  </div>
+</div>
+
+
+        </div>
+      </div>
+
+      <!-- INFO + COMPRA -->
+      <div class="bg-white rounded-2xl shadow-soft border border-res-gray/40 overflow-hidden">
+        <div class="p-5 sm:p-7">
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-neutral-800">
+            Detergente Resplandor 500ml
+          </h2>
+
+          <div class="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-sm text-res-text/75">
+            <span>COD: <strong class="text-res-text">RSP-DET-500</strong></span>
+            <span>Marca: <strong class="text-res-text">Resplandor</strong></span>
+          </div>
+
+          <!-- Precio (opcional) -->
+          <div class="mt-5 flex items-baseline gap-3">
+            <span class="text-res-text/60 line-through font-semibold">Gs. 6.500</span>
+            <span class="text-res-green text-2xl font-extrabold">Gs. 5.900</span>
+          </div>
+
+          <p class="mt-4 text-res-text leading-relaxed">
+            Fórmula concentrada para el lavado diario. Remueve grasa y suciedad con eficacia,
+            cuidando tus utensilios y dejando un aroma agradable.
+          </p>
+
+          <!-- Tags -->
+          <div class="mt-5 flex flex-wrap items-center gap-2">
+            <span class="text-sm font-semibold text-neutral-700">Etiquetas:</span>
+
+            <span class="inline-flex items-center rounded-full bg-neutral-100 text-res-text px-3 py-1 text-xs font-semibold">
+              Hogar
+            </span>
+            <span class="inline-flex items-center rounded-full bg-neutral-100 text-res-text px-3 py-1 text-xs font-semibold">
+              Limpieza
+            </span>
+            <span class="inline-flex items-center rounded-full bg-neutral-100 text-res-text px-3 py-1 text-xs font-semibold">
+              Uso diario
+            </span>
+          </div>
+
+          <!-- Stock -->
+          <div class="mt-5 flex items-center gap-2">
+            <span class="text-sm font-semibold text-neutral-700">En stock:</span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-res-green/10 text-res-green border border-res-green/20 px-3 py-1 text-xs font-bold">
+              <span class="h-2 w-2 rounded-full bg-res-green"></span>
+              Disponible
+            </span>
+          </div>
+
+          <!-- Cantidad -->
+          <div class="mt-6 flex flex-wrap items-center gap-4">
+            <span class="text-sm font-semibold text-neutral-700">Cantidad:</span>
+
+            <div class="flex items-center rounded-xl border border-res-gray/60 bg-white overflow-hidden">
+              <button
+                type="button"
+                class="w-11 h-11 grid place-items-center text-res-text/70 hover:bg-neutral-50 active:scale-[.98] transition"
+                aria-label="Restar"
+              >
+                –
+              </button>
+
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="w-14 h-11 text-center text-sm font-bold text-neutral-800 outline-none border-x border-res-gray/60"
+                aria-label="Cantidad"
+              />
+
+              <button
+                type="button"
+                class="w-11 h-11 grid place-items-center text-res-text/70 hover:bg-neutral-50 active:scale-[.98] transition"
+                aria-label="Sumar"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-7 grid gap-3">
+            <button
+              type="button"
+              class="w-full inline-flex items-center justify-center gap-3 rounded-xl bg-res-green px-5 py-3.5 text-white font-extrabold tracking-wide shadow-soft hover:brightness-95 active:scale-[.99] transition"
+            >
+              <span class="inline-flex items-center justify-center w-6 h-6">
+                <img src="./img/carro-de-la-compra.svg" alt="" class="w-5 h-5 filter brightness-0 invert" />
+              </span>
+              Agregar al carrito
+            </button>
+
+<a href="https://wa.me/595XXXXXXXXX"
+   target="_blank"
+   rel="noopener"
+   class="res-whatsapp"
+   aria-label="Consultar por WhatsApp">
+
+  <img
+    src="./img/whatsapp.svg"
+    alt="WhatsApp"
+    class="res-whatsapp__icon"
+  />
+
+  <span class="res-whatsapp__text">Consultar producto por WhatsApp</span>
+</a>
+
+
+          </div>
+
+          <!-- Share -->
+          <div class="mt-6 flex items-center justify-between flex-wrap gap-3">
+            <span class="text-sm font-semibold text-neutral-700">Compartir:</span>
+
+            <div class="flex items-center gap-2">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition"
+                aria-label="Compartir en Facebook"
+              >
+                <img src="./img/facebook.svg" alt="" class="w-5 h-5 opacity-70" />
+              </a>
+
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition"
+                aria-label="Compartir en Instagram"
+              >
+                <img src="./img/instagram.svg" alt="" class="w-5 h-5 opacity-70" />
+              </a>
+
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition"
+                aria-label="Compartir por WhatsApp"
+              >
+                <img src="./img/whatsapp.svg" alt="" class="w-5 h-5 opacity-70" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Nota de confianza (UX) -->
+          <div class="mt-6 rounded-xl border border-res-gray/50 bg-neutral-50 p-4">
+            <p class="text-sm text-res-text leading-relaxed">
+              <strong class="text-neutral-800">Respaldo Resplandor:</strong> productos de uso diario con calidad local y stock disponible.
+              ¿Necesitás compra por volumen? Escribinos por WhatsApp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- =========================
+  PRODUCTOS RELACIONADOS (CARRUSEL)
+========================= -->
+<section class="bg-neutral-50 pt-12 mb-20">
+  <div class="mx-auto max-w-7xl px-4">
+    <header class="flex items-end justify-between gap-4 flex-wrap">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-neutral-800">
+          Productos relacionados
+        </h2>
+        <p class="mt-2 text-res-text">
+          Productos que suelen comprarse junto a este artículo.
+        </p>
+      </div>
+
+<!-- Flechas -->
+<div class="flex items-center gap-2">
+  <button
+    class="res-carousel-arrow"
+    type="button"
+    aria-label="Anterior"
+    data-carousel-prev
+  >
+    ‹
+  </button>
+
+  <button
+    class="res-carousel-arrow"
+    type="button"
+    aria-label="Siguiente"
+    data-carousel-next
+  >
+    ›
+  </button>
+</div>
+    </header>
+
+    <!-- Carrusel -->
+    <div
+      class="mt-6"
+      data-carousel="related"
+    >
+<div class="overflow-hidden rounded-2xl px-2 sm:px-4 py-8" data-carousel-viewport>
+        <div
+          class="flex gap-5 transition-transform duration-300 will-change-transform"
+          data-carousel-track
+        >
+
+          <!-- ITEM 1 -->
+          <div class="shrink-0 w-[78%] sm:w-[48%] lg:w-[31%] xl:w-[23%]">
+            <article class="res-card">
+              <span class="res-badge">Nuevo</span>
+
+              <div class="res-card__media">
+                <a href="producto_detalle.html" class="res-card__link">
+                  <img src="./img/limpia_vidrios_resplandor.png" alt="Limpia Vidrios" loading="lazy" decoding="async"/>
+                </a>
+              </div>
+
+              <div class="res-card__body">
+                <h3 class="res-card__name">Limpia Vidrios</h3>
+
+                <div class="res-card__row">
+                  <div class="res-price">
+                    <span class="res-price__old">Gs. 22.000</span>
+                    <span class="res-price__new">Gs. 17.900</span>
+                  </div>
+
+                  <button class="res-cart" aria-label="Agregar al carrito">
+                    <img src="./img/carro-de-la-compra.svg" class="res-cart__icon" alt="" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="shrink-0 w-[78%] sm:w-[48%] lg:w-[31%] xl:w-[23%]">
+            <article class="res-card">
+              <span class="res-badge res-badge--sale">Oferta</span>
+
+              <div class="res-card__media">
+                <a href="producto_detalle.html" class="res-card__link">
+                  <img src="./img/limpiador_desengrasante_resplandor.png" alt="Limpiador Desengrasante" loading="lazy" decoding="async"/>
+                </a>
+              </div>
+
+              <div class="res-card__body">
+                <h3 class="res-card__name">Limpiador Desengrasante</h3>
+
+                <div class="res-card__row">
+                  <div class="res-price">
+                    <span class="res-price__old">Gs. 18.500</span>
+                    <span class="res-price__new">Gs. 14.500</span>
+                  </div>
+
+                  <button class="res-cart" aria-label="Agregar al carrito">
+                    <img src="./img/carro-de-la-compra.svg" class="res-cart__icon" alt="" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="shrink-0 w-[78%] sm:w-[48%] lg:w-[31%] xl:w-[23%]">
+            <article class="res-card">
+              <span class="res-badge">Nuevo</span>
+
+              <div class="res-card__media">
+                <a href="producto_detalle.html" class="res-card__link">
+                  <img src="./img/desodorante_de_ambiente_uva_resplandor.png" alt="Desodorante de ambiente" loading="lazy" decoding="async"/>
+                </a>
+              </div>
+
+              <div class="res-card__body">
+                <h3 class="res-card__name">Desodorante de ambiente</h3>
+
+                <div class="res-card__row">
+                  <div class="res-price">
+                    <span class="res-price__old">Gs. 12.000</span>
+                    <span class="res-price__new">Gs. 9.900</span>
+                  </div>
+
+                  <button class="res-cart" aria-label="Agregar al carrito">
+                    <img src="./img/carro-de-la-compra.svg" class="res-cart__icon" alt="" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- ITEM 4 -->
+          <div class="shrink-0 w-[78%] sm:w-[48%] lg:w-[31%] xl:w-[23%]">
+            <article class="res-card">
+              <span class="res-badge">Destacado</span>
+
+              <div class="res-card__media">
+                <a href="producto_detalle.html" class="res-card__link">
+                  <img src="./img/jabon_de_coco_puro_resplandor.png" alt="Jabón de coco" loading="lazy" decoding="async"/>
+                </a>
+              </div>
+
+              <div class="res-card__body">
+                <h3 class="res-card__name">Jabón de coco puro</h3>
+
+                <div class="res-card__row">
+                  <div class="res-price">
+                    <span class="res-price__old">Gs. 10.000</span>
+                    <span class="res-price__new">Gs. 8.500</span>
+                  </div>
+
+                  <button class="res-cart" aria-label="Agregar al carrito">
+                    <img src="./img/carro-de-la-compra.svg" class="res-cart__icon" alt="" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+
+          <!-- ITEM 5 -->
+          <div class="shrink-0 w-[78%] sm:w-[48%] lg:w-[31%] xl:w-[23%]">
+            <article class="res-card">
+              <span class="res-badge">Nuevo</span>
+
+              <div class="res-card__media">
+                <a href="producto_detalle.html" class="res-card__link">
+                  <img src="./img/desodorante_de_ambiente_uva_resplandor.png" alt="Desodorante de ambiente" loading="lazy" decoding="async"/>
+                </a>
+              </div>
+
+              <div class="res-card__body">
+                <h3 class="res-card__name">Desodorante de ambiente</h3>
+
+                <div class="res-card__row">
+                  <div class="res-price">
+                    <span class="res-price__old">Gs. 12.000</span>
+                    <span class="res-price__new">Gs. 9.900</span>
+                  </div>
+
+                  <button class="res-cart" aria-label="Agregar al carrito">
+                    <img src="./img/carro-de-la-compra.svg" class="res-cart__icon" alt="" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+  FOOTER
+========================= -->
+
+
+
+<footer class="res-footer" aria-label="Footer Resplandor">
+
+  <!-- FOOTER DESKTOP -->
+  <div class="res-footer__inner res-footer__desktop">
+    <!-- Col 1: Marca + newsletter -->
+    <div class="res-footer__col res-footer__brand">
+      <a class="res-footer__logo" href="#">
+        <img src="./img/logo_resplandor.png" alt="Resplandor" />
+      </a>
+
+      <p class="res-footer__desc">
+        Productos de limpieza y cuidado para el hogar e industria, con calidad y respaldo local.
+      </p>
+    </div>
+
+    <!-- Col 2: Links -->
+    <div class="res-footer__col">
+      <h3 class="res-footer__title">Enlaces rápidos</h3>
+      <ul class="res-footer__list">
+        <li><a href="nosotros.html" class="res-footer__link">Quiénes somos</a></li>
+        <li>
+          <a href="#" class="res-footer__link" data-open-drawer>
+            Líneas de productos
+          </a>
+        </li>
+        <li><a href="marcas.html" class="res-footer__link">Nuestras marcas</a></li>
+        <li><a href="catalogo_resplandor.pdf" class="res-footer__link">Catálogo</a></li>
+        <li><a href="contactos.html" class="res-footer__link">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Horarios -->
+    <div class="res-footer__col">
+      <h3 class="res-footer__title">Horario Showroom</h3>
+      <div class="res-footer__hours">
+        <div class="res-footer__hourRow">
+          <span class="res-footer__day">Lunes a Viernes:</span>
+          <span class="res-footer__time">07:00 – 17:00</span>
+        </div>
+        <div class="res-footer__hourRow">
+          <span class="res-footer__day">Sábado:</span>
+          <span class="res-footer__time">08:00 – 12:00</span>
+        </div>
+        <div class="res-footer__hourRow">
+          <span class="res-footer__day">Domingo:</span>
+          <span class="res-footer__time">Cerrado</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Col 4: Contacto + redes -->
+    <div class="res-footer__col">
+      <h3 class="res-footer__title">Contacto</h3>
+
+      <ul class="res-footer__contact">
+        <li class="res-footer__contactItem">
+          <img src="./img/mapa.svg" alt="" />
+          <span>Dir. Avda. Mcal. Lopez Ruta Villeta Guarambare - Paraguay</span>
+        </li>
+        <li class="res-footer__contactItem">
+          <img src="./img/llamar.svg" alt="" />
+          <span>(+595 21) 328 5079</span>
+        </li>
+        <li class="res-footer__contactItem">
+          <img src="./img/correo-electronico.svg" alt="" />
+          <a href="mailto:ventas@resplandor.com.py">ventas@resplandor.com.py</a>
+        </li>
+      </ul>
+
+      <div class="res-footer__social">
+        <a class="res-footer__socialBtn" href="https://www.facebook.com/resplandorsrlpy" target="_blank" aria-label="Facebook">
+          <img src="./img/facebook.svg" alt="" />
+        </a>
+        <a class="res-footer__socialBtn" href="https://www.instagram.com/resplandorsrl/" target="_blank" aria-label="Instagram">
+          <img src="./img/instagram.svg" alt="" />
+        </a>
+        <a class="res-footer__socialBtn" href="#" aria-label="TikTok">
+          <img src="./img/tik-tok.svg" alt="" />
+        </a>
+        <a class="res-footer__socialBtn" href="https://wa.me/595981243277" target="_blank" aria-label="WhatsApp">
+          <img src="./img/whatsapp.svg" alt="" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER MOBILE -->
+  <div class="res-footer__mobile">
+    <details class="res-acc" open>
+      <summary>Contacto</summary>
+
+      <ul class="res-footer__contact">
+        <li class="res-footer__contactItem">
+          <img src="./img/mapa.svg" alt="" />
+          <span>Dir. Avda. Mcal. Lopez Ruta Villeta Guarambare - Paraguay</span>
+        </li>
+        <li class="res-footer__contactItem">
+          <img src="./img/llamar.svg" alt="" />
+          <span>(+595 21) 328 5079</span>
+        </li>
+        <li class="res-footer__contactItem">
+          <img src="./img/correo-electronico.svg" alt="" />
+          <a href="mailto:ventas@resplandor.com.py">ventas@resplandor.com.py</a>
+        </li>
+      </ul>
+
+      <div class="res-footer__social">
+        <a class="res-footer__socialBtn" href="#" aria-label="Facebook">
+          <img src="./img/facebook.svg" alt="" />
+        </a>
+        <a class="res-footer__socialBtn" href="#" aria-label="Instagram">
+          <img src="./img/instagram.svg" alt="" />
+        </a>
+        <a class="res-footer__socialBtn" href="#" aria-label="TikTok">
+          <img src="./img/tik-tok.svg" alt="" />
+        </a>
+        <a class="res-footer__socialBtn" href="#" aria-label="WhatsApp">
+          <img src="./img/whatsapp.svg" alt="" />
+        </a>
+      </div>
+    </details>
+
+    <details class="res-acc">
+      <summary>Horario Showroom</summary>
+      <div class="res-footer__hours">
+        <div class="res-footer__hourRow">
+          <span class="res-footer__day">Lunes a Viernes:</span>
+          <span class="res-footer__time">07:00 – 17:00</span>
+        </div>
+        <div class="res-footer__hourRow">
+          <span class="res-footer__day">Sábado:</span>
+          <span class="res-footer__time">08:00 – 12:00</span>
+        </div>
+        <div class="res-footer__hourRow">
+          <span class="res-footer__day">Domingo:</span>
+          <span class="res-footer__time">Cerrado</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="res-acc">
+      <summary>Enlaces rápidos</summary>
+      <ul class="res-footer__list">
+        <li><a href="#" class="res-footer__link">Quiénes somos</a></li>
+        <li>
+          <a href="#" class="res-footer__link" data-open-drawer>
+            Líneas de productos
+          </a>
+        </li>
+        <li><a href="#" class="res-footer__link">Nuestras marcas</a></li>
+        <li><a href="#" class="res-footer__link">Catálogo</a></li>
+        <li><a href="#" class="res-footer__link">Contacto</a></li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="res-footer__bottom">
+    <p class="res-footer__legal">
+      © <span id="footer-year"></span> Resplandor. Todos los derechos reservados.
+      <span class="res-footer__dot">•</span>
+      <a href="https://www.khipu.com.py" target="_blank" rel="noopener" class="res-footer__credit">
+        Crafted with care by <span>Khipu</span>
+      </a>
+    </p>
+  </div>
+
+</footer>
+
+
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
