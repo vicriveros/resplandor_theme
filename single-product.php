@@ -292,105 +292,88 @@ while ( have_posts() ) :
 </section>
 
 <!-- =========================
-  PRODUCTOS RELACIONADOS (CARRUSEL)
+  PRODUCTOS RELACIONADOS (GRID)
 ========================= -->
 <?php
-$related_products = wc_get_related_products( $product->get_id(), 5 );
+$related_products = wc_get_related_products( $product->get_id(), 3 ); // Changed to 3 items
 
 if ( ! empty( $related_products ) ) :
 ?>
 <section class="bg-neutral-50 pt-12 mb-20">
-  <div class="mx-auto max-w-7xl px-4">
-    <header class="flex items-end justify-between gap-4 flex-wrap">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-neutral-800">
-          Productos relacionados
-        </h2>
-        <p class="mt-2 text-res-text">
-          Productos que suelen comprarse junto a este artículo.
-        </p>
-      </div>
-
-      <!-- Flechas -->
-      <div class="flex items-center gap-2">
-        <button class="res-carousel-arrow" type="button" aria-label="Anterior" data-carousel-prev>‹</button>
-        <button class="res-carousel-arrow" type="button" aria-label="Siguiente" data-carousel-next>›</button>
-      </div>
+  <div class="res-container py-10">
+    <header class="res-featured__head mb-12 text-left">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-neutral-800">
+        Productos relacionados
+      </h2>
+      <p class="mt-2 text-res-text">
+        Productos que suelen comprarse junto a este artículo.
+      </p>
     </header>
 
-    <!-- Carrusel -->
-    <div class="mt-6" data-carousel="related">
-      <div class="overflow-hidden rounded-2xl px-2 sm:px-4 py-8" data-carousel-viewport>
-        <div class="flex gap-5 transition-transform duration-300 will-change-transform" data-carousel-track>
+    <div class="res-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 280px)); justify-content: start;">
+        <?php foreach ( $related_products as $related_product_id ) : ?>
+          <?php
+          $rel_product = wc_get_product( $related_product_id );
+          if ( ! $rel_product ) continue;
+          
+          $rel_is_on_sale = $rel_product->is_on_sale();
+          $rel_badge_text = $rel_is_on_sale ? 'Oferta' : ( $rel_product->is_featured() ? 'Destacado' : '' );
+          $rel_badge_class = $rel_is_on_sale ? 'res-badge res-badge--sale' : 'res-badge';
+          
+          $rel_image_url = get_the_post_thumbnail_url( $rel_product->get_id(), 'woocommerce_thumbnail' );
+          if ( ! $rel_image_url ) $rel_image_url = wc_placeholder_img_src();
+          ?>
+          <article <?php wc_product_class( 'res-card', $rel_product ); ?>>
+            <?php if ( $rel_badge_text ) : ?>
+              <span class="<?php echo esc_attr( $rel_badge_class ); ?>"><?php echo esc_html( $rel_badge_text ); ?></span>
+            <?php endif; ?>
 
-          <?php foreach ( $related_products as $related_product_id ) : ?>
-            <?php
-            $rel_product = wc_get_product( $related_product_id );
-            if ( ! $rel_product ) continue;
-            
-            $rel_is_on_sale = $rel_product->is_on_sale();
-            $rel_badge_text = $rel_is_on_sale ? 'Oferta' : ( $rel_product->is_featured() ? 'Destacado' : '' );
-            $rel_badge_class = $rel_is_on_sale ? 'res-badge res-badge--sale' : 'res-badge';
-            
-            $rel_image_url = get_the_post_thumbnail_url( $rel_product->get_id(), 'woocommerce_thumbnail' );
-            if ( ! $rel_image_url ) $rel_image_url = wc_placeholder_img_src();
-            ?>
-            <div class="shrink-0 w-[85%] sm:w-[48%] md:w-[31%] xl:w-[23%]">
-              <article <?php wc_product_class( 'res-card', $rel_product ); ?>>
-                <?php if ( $rel_badge_text ) : ?>
-                  <span class="<?php echo esc_attr( $rel_badge_class ); ?>"><?php echo esc_html( $rel_badge_text ); ?></span>
-                <?php endif; ?>
-
-                <div class="res-card__media">
-                  <a href="<?php echo esc_url( $rel_product->get_permalink() ); ?>" class="res-card__link">
-                    <img src="<?php echo esc_url( $rel_image_url ); ?>" alt="<?php echo esc_attr( $rel_product->get_name() ); ?>" loading="lazy" decoding="async"/>
-                  </a>
-                </div>
-
-                <div class="res-card__body">
-                  <h3 class="res-card__name">
-                      <a href="<?php echo esc_url( $rel_product->get_permalink() ); ?>" class="text-inherit hover:underline"><?php echo esc_html( $rel_product->get_name() ); ?></a>
-                  </h3>
-
-                  <div class="res-card__row">
-                    <div class="res-price">
-                      <?php
-                      if ( $rel_is_on_sale && $rel_product->get_regular_price() ) {
-                          echo '<span class="res-price__old">' . wc_price( $rel_product->get_regular_price() ) . '</span>';
-                          echo '<span class="res-price__new">' . wc_price( $rel_product->get_sale_price() ) . '</span>';
-                      } else {
-                          echo '<span class="res-price__new">' . wp_kses_post( $rel_product->get_price_html() ) . '</span>';
-                      }
-                      ?>
-                    </div>
-
-                    <?php
-                    $rel_cart_url = $rel_product->add_to_cart_url();
-                    $rel_cart_classes = array(
-                      'res-cart',
-                      'button',
-                      'product_type_' . $rel_product->get_type(),
-                      $rel_product->is_purchasable() && $rel_product->is_in_stock() ? 'add_to_cart_button' : '',
-                      $rel_product->supports( 'ajax_add_to_cart' ) && $rel_product->is_purchasable() && $rel_product->is_in_stock() ? 'ajax_add_to_cart' : '',
-                    );
-                    ?>
-                    <a href="<?php echo esc_url( $rel_cart_url ); ?>"
-                       data-quantity="1"
-                       class="<?php echo esc_attr( implode( ' ', array_filter( $rel_cart_classes ) ) ); ?>"
-                       data-product_id="<?php echo get_the_ID(); ?>"
-                       data-product_sku="<?php echo esc_attr( $rel_product->get_sku() ); ?>"
-                       aria-label="<?php echo esc_attr( $rel_product->add_to_cart_description() ); ?>"
-                       rel="nofollow">
-                      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
-                    </a>
-                  </div>
-                </div>
-              </article>
+            <div class="res-card__media">
+              <a href="<?php echo esc_url( $rel_product->get_permalink() ); ?>" class="res-card__link">
+                <img src="<?php echo esc_url( $rel_image_url ); ?>" alt="<?php echo esc_attr( $rel_product->get_name() ); ?>" loading="lazy" decoding="async"/>
+              </a>
             </div>
-          <?php endforeach; ?>
 
-        </div>
-      </div>
+            <div class="res-card__body">
+              <h3 class="res-card__name">
+                  <a href="<?php echo esc_url( $rel_product->get_permalink() ); ?>" class="text-inherit hover:underline"><?php echo esc_html( $rel_product->get_name() ); ?></a>
+              </h3>
+
+              <div class="res-card__row">
+                <div class="res-price">
+                  <?php
+                  if ( $rel_is_on_sale && $rel_product->get_regular_price() ) {
+                      echo '<span class="res-price__old">' . wc_price( $rel_product->get_regular_price() ) . '</span>';
+                      echo '<span class="res-price__new">' . wc_price( $rel_product->get_sale_price() ) . '</span>';
+                  } else {
+                      echo '<span class="res-price__new">' . wp_kses_post( $rel_product->get_price_html() ) . '</span>';
+                  }
+                  ?>
+                </div>
+
+                <?php
+                $rel_cart_url = $rel_product->add_to_cart_url();
+                $rel_cart_classes = array(
+                  'res-cart',
+                  'button',
+                  'product_type_' . $rel_product->get_type(),
+                  $rel_product->is_purchasable() && $rel_product->is_in_stock() ? 'add_to_cart_button' : '',
+                  $rel_product->supports( 'ajax_add_to_cart' ) && $rel_product->is_purchasable() && $rel_product->is_in_stock() ? 'ajax_add_to_cart' : '',
+                );
+                ?>
+                <a href="<?php echo esc_url( $rel_cart_url ); ?>"
+                   data-quantity="1"
+                   class="<?php echo esc_attr( implode( ' ', array_filter( $rel_cart_classes ) ) ); ?>"
+                   data-product_id="<?php echo get_the_ID(); ?>"
+                   data-product_sku="<?php echo esc_attr( $rel_product->get_sku() ); ?>"
+                   aria-label="<?php echo esc_attr( $rel_product->add_to_cart_description() ); ?>"
+                   rel="nofollow">
+                  <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carrito-de-compras.svg" class="res-cart__icon" alt="" />
+                </a>
+              </div>
+            </div>
+          </article>
+        <?php endforeach; ?>
     </div>
   </div>
 </section>

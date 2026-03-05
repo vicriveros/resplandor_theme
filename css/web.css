@@ -940,18 +940,28 @@ body.drawer-open {
 }
 
 /* cart button */
+.res-card__row .res-cart.button,
 .res-cart {
-  width: 44px;
-  height: 44px;
+  width: 44px !important;
+  height: 44px !important;
   border-radius: 12px;
   border: none;
   background: #e8e8e8;
   /* gris suave */
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background .25s ease, transform .2s ease, box-shadow .25s ease;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+  min-width: 44px;
+}
+
+/* Update WooCommerce adding class styling specifically for custom button */
+.res-card__row .res-cart.button.loading {
+  opacity: 0.5;
 }
 
 /* Icono carrito */
@@ -959,13 +969,13 @@ body.drawer-open {
   width: 22px;
   height: 22px;
   display: block;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0;
 
   filter: none !important;
 }
 
 /* Hover */
+.res-card__row .res-cart.button:hover,
 .res-cart:hover {
   background: var(--res-green);
   transform: translateY(-2px);
@@ -973,12 +983,14 @@ body.drawer-open {
 }
 
 /* Ícono blanco al hover */
+.res-card__row .res-cart.button:hover .res-cart__icon,
 .res-cart:hover .res-cart__icon {
-  filter: none !important;
+  filter: brightness(0) invert(1) !important;
   opacity: 1;
 }
 
 /* Click */
+.res-card__row .res-cart.button:active,
 .res-cart:active {
   transform: scale(0.95);
   box-shadow: 0 4px 10px rgba(0, 166, 81, 0.25);
@@ -1870,6 +1882,7 @@ body.drawer-open {
 
 
 /* Zoom suave en cards (más seguro: sin will-change) */
+.woocommerce-breadcrumb a,
 body.woocommerce-page .woocommerce-breadcrumb a,
 .woocommerce:where(body:not(.woocommerce-uses-block-theme)) .woocommerce-breadcrumb a {
   color: rgba(255, 255, 255, 0.85) !important;

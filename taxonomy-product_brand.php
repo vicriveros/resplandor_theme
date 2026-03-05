@@ -10,19 +10,45 @@ get_header();
 $brand = get_queried_object();
 ?>
 
-<div class="res-container py-10 pt-32">
-  <header class="res-featured__head mb-12">
-    <h1 class="res-featured__title"><?php echo esc_html( $brand->name ); ?></h1>
-    <?php if ( ! empty( $brand->description ) ) : ?>
-      <p class="res-featured__subtitle">
-        <?php echo wp_kses_post( $brand->description ); ?>
-      </p>
-    <?php endif; ?>
-  </header>
+<section class="bg-neutral-50" id="page-<?php the_ID(); ?>">
+  <!-- Header / Breadcrumb -->
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-res-green/95 via-res-green to-res-green/90"></div>
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_30%,white_0%,transparent_40%),radial-gradient(circle_at_85%_25%,white_0%,transparent_45%),radial-gradient(circle_at_60%_90%,white_0%,transparent_45%)]"></div>
 
-  <?php if ( have_posts() ) : ?>
-    <div class="res-grid">
-      <?php
+    <div class="relative mx-auto max-w-7xl px-4 py-12">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+        <?php echo esc_html( $brand->name ); ?>
+      </h1>
+
+      <nav class="mt-3 text-sm text-white/85 woocommerce-breadcrumb">
+        <?php woocommerce_breadcrumb( array(
+            'delimiter'   => ' <span class="text-white/60">›</span> ',
+            'wrap_before' => '<ol class="flex flex-wrap items-center gap-2">',
+            'wrap_after'  => '</ol>',
+            'before'      => '<li class="text-white/85">',
+            'after'       => '</li>',
+            'home'        => _x( 'Inicio', 'breadcrumb', 'woocommerce' ),
+        ) ); ?>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="mx-auto max-w-7xl px-4 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+      <div class="res-container">
+        <header class="res-featured__head mb-12">
+          <?php if ( ! empty( $brand->description ) ) : ?>
+            <p class="res-featured__subtitle">
+              <?php echo wp_kses_post( $brand->description ); ?>
+            </p>
+          <?php endif; ?>
+        </header>
+
+        <?php if ( have_posts() ) : ?>
+          <div class="res-grid">
+            <?php
       while ( have_posts() ) : the_post();
           global $product;
           
@@ -112,6 +138,10 @@ $brand = get_queried_object();
     <p>No se encontraron productos para esta marca.</p>
   <?php endif; ?>
 </div>
+    </div>
+  </div>
+</section>
+
 
 <?php
 get_footer();

@@ -16,11 +16,7 @@ while ( have_posts() ) :
 	
 ?>
 
-<!-- =========================
-  DETALLES DEL PRODUCTO 
-========================= -->
-
-<section class="bg-neutral-50" id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+<section class="bg-neutral-50" id="page-<?php the_ID(); ?>">
   <!-- Header / Breadcrumb -->
   <div class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-r from-res-green/95 via-res-green to-res-green/90"></div>
