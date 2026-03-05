@@ -364,7 +364,7 @@ if ( ! empty( $related_products ) ) :
                 <a href="<?php echo esc_url( $rel_cart_url ); ?>"
                    data-quantity="1"
                    class="<?php echo esc_attr( implode( ' ', array_filter( $rel_cart_classes ) ) ); ?>"
-                   data-product_id="<?php echo get_the_ID(); ?>"
+                   data-product_id="<?php echo esc_attr( $rel_product->get_id() ); ?>"
                    data-product_sku="<?php echo esc_attr( $rel_product->get_sku() ); ?>"
                    aria-label="<?php echo esc_attr( $rel_product->add_to_cart_description() ); ?>"
                    rel="nofollow">
