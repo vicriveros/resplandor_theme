@@ -94,11 +94,16 @@
 
       <!-- MOBILE: buscador desplegable (solo cuando se activa) -->
       <div id="mobileSearch" class="mobile-search lg:hidden" hidden>
-        <input
-          type="search"
-          placeholder="Buscá tu producto aquí…"
-          class="search-input w-full px-5 py-3 text-res-text placeholder:text-res-text/50"
-        />
+        <form role="search" method="get" class="search-form w-full" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+          <input
+            type="search"
+            name="s"
+            value="<?php echo get_search_query(); ?>"
+            placeholder="Buscá tu producto aquí…"
+            class="search-input w-full px-5 py-3 text-res-text placeholder:text-res-text/50"
+          />
+          <input type="hidden" name="post_type" value="product" />
+        </form>
       </div>
 
       <!-- DESKTOP: fila normal (logo - buscador - botones) -->
@@ -109,11 +114,16 @@
 
         <div class="flex justify-center flex-1">
           <div class="w-full max-w-[1000px]">
-            <input
-              type="search"
-              placeholder="Buscá tu producto aquí…"
-              class="search-input w-full px-6 py-3 text-res-text placeholder:text-res-text/50"
-            />
+            <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+              <input
+                type="search"
+                name="s"
+                value="<?php echo get_search_query(); ?>"
+                placeholder="Buscá tu producto aquí…"
+                class="search-input w-full px-6 py-3 text-res-text placeholder:text-res-text/50"
+              />
+              <input type="hidden" name="post_type" value="product" />
+            </form>
           </div>
         </div>
 
