@@ -46,10 +46,18 @@ get_header();
               }
               if ( ! $product ) continue;
               
-              // Check if product is on sale
               $is_on_sale = $product->is_on_sale();
-              $badge_text = $is_on_sale ? 'Oferta' : 'Destacado';
-              $badge_class = $is_on_sale ? 'res-badge res-badge--sale' : 'res-badge';
+              $is_featured = $product->is_featured();
+              $badge_text = '';
+              $badge_class = '';
+
+              if ( $is_on_sale ) {
+                  $badge_text = 'Oferta';
+                  $badge_class = 'res-badge res-badge--sale';
+              } elseif ( $is_featured ) {
+                  $badge_text = 'Destacado';
+                  $badge_class = 'res-badge';
+              }
               
               // Prices
               $regular_price = $product->get_regular_price();
@@ -70,7 +78,9 @@ get_header();
               ?>
               <!-- Card -->
               <article <?php wc_product_class( 'res-card', $product ); ?>>
-                <span class="<?php echo esc_attr( $badge_class ); ?>"><?php echo esc_html( $badge_text ); ?></span>
+                <?php if ( $badge_text ) : ?>
+                  <span class="<?php echo esc_attr( $badge_class ); ?>"><?php echo esc_html( $badge_text ); ?></span>
+                <?php endif; ?>
 
                 <div class="res-card__media">
                   <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="res-card__link">
