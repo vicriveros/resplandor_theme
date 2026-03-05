@@ -86,7 +86,7 @@
 
           <!-- Carrito -->
           <button class="icon-btn cart-btn" type="button" aria-label="Carrito">
-            <span class="cart-badge">3</span>
+            <span class="cart-badge cart-count-dynamic"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" />
           </button>
         </div>
@@ -130,10 +130,10 @@
             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/red.svg" alt="Menú" class="icon-svg" />
           </button>
 
-          <button class="icon-btn cart-btn" type="button" aria-label="Carrito">
-            <span class="cart-badge">3</span>
+          <a class="icon-btn cart-btn" href="<?php echo esc_url( wc_get_cart_url() ); ?>" aria-label="Carrito">
+            <span class="cart-badge cart-count-dynamic"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" />
-          </button>
+          </a>
         </div>
       </div>
 

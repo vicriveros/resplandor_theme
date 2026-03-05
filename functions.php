@@ -69,3 +69,13 @@ function add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'add_woocommerce_support' );
+
+/**
+ * Handle WooCommerce AJAX Cart Fragments
+ */
+function resplandor_cart_fragments( $fragments ) {
+    $count = WC()->cart->get_cart_contents_count();
+    $fragments['span.cart-count-dynamic'] = '<span class="cart-badge cart-count-dynamic">' . $count . '</span>';
+    return $fragments;
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'resplandor_cart_fragments' );
