@@ -61,3 +61,11 @@ add_action( 'wp_enqueue_scripts', 'resplandor_scripts' );
  */
 require get_template_directory() . '/inc/class-resplandor-nav-walker.php';
 require get_template_directory() . '/inc/class-resplandor-mobile-no-children-walker.php';
+
+/**
+ * Add WooCommerce Support
+ */
+function add_woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'add_woocommerce_support' );
