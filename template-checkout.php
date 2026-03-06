@@ -217,5 +217,48 @@ if ( WC()->cart->is_empty() ) {
 }
 </style>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const checkoutForm = document.querySelector('form.checkout');
+    const placeOrderBtn = document.getElementById('place_order');
+    
+    // Configuración de WhatsApp (Cambiar este número al del negocio)
+    const whatsappNumber = '595961618105'; 
+
+    if (placeOrderBtn && checkoutForm) {
+        placeOrderBtn.addEventListener('click', function(e) {
+            // Solo disparamos WhatsApp si el formulario es válido (campos requeridos llenos)
+            if (checkoutForm.checkValidity()) {
+                const name = document.getElementById('billing_first_name').value;
+                const phone = document.getElementById('billing_phone').value;
+                const address = document.getElementById('billing_address_1').value;
+                const total = '<?php echo strip_tags(WC()->cart->get_total()); ?>';
+                
+                let itemsList = '';
+                <?php
+                foreach ( WC()->cart->get_cart() as $cart_item ) {
+                    $_product = $cart_item['data'];
+                    echo "itemsList += '- " . esc_js( $_product->get_name() ) . " x" . $cart_item['quantity'] . "\\n';";
+                }
+                ?>
+
+                const message = `*Nuevo Pedido - Resplandor*\n\n` +
+                                `*Nombre:* ${name}\n` +
+                                `*Teléfono:* ${phone}\n` +
+                                `*Dirección:* ${address}\n\n` +
+                                `*Resumen del pedido:*\n${itemsList}\n` +
+                                `*Total:* ${total}\n\n` +
+                                `Hola, acabo de realizar mi pedido en la web y me gustaría coordinar la entrega.`;
+
+                const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                
+                // Abrimos WhatsApp en una nueva pestaña
+                window.open(waUrl, '_blank');
+            }
+        });
+    }
+});
+</script>
+
 <?php
 get_footer();

@@ -14,32 +14,45 @@ get_header();
 <section class="res-hero">
   <div class="res-hero__viewport">
     <div class="res-hero__track">
-      <!-- Slide 1 -->
-      <a
-        href="#"
-        class="res-hero__slide is-active"
-        data-bg-desktop="<?php echo esc_url( get_template_directory_uri() ); ?>/img/banner_desodorante_frutilla_resplandor.png"
-        data-bg-mobile="<?php echo esc_url( get_template_directory_uri() ); ?>/img/banner_desodorante_frutilla_resplandor_m.png"
-        aria-label="Productos de limpieza Resplandor"
-      ></a>
+      <?php
+      $args = array(
+          'post_type'      => 'attachment',
+          'post_status'    => 'inherit',
+          'posts_per_page' => -1,
+          'meta_query'     => array(
+              array(
+                  'key'     => 'agregar_al_banner',
+                  'value'   => 'si',
+                  'compare' => '=',
+              ),
+          ),
+      );
+      $banner_images = get_posts( $args );
+      $banner_items = array();
 
-      <!-- Slide 2 -->
-      <a
-        href="#"
-        class="res-hero__slide is-active"
-        data-bg-desktop="<?php echo esc_url( get_template_directory_uri() ); ?>/img/banner_limpia_vidrios_resplandor.png"
-        data-bg-mobile="<?php echo esc_url( get_template_directory_uri() ); ?>/img/banner_limpia_vidrios_resplandor_m.png"
-        aria-label="Productos de limpieza Resplandor"
-      ></a>
-
-      <!-- Slide 3 -->
-      <a
-        href="#"
-        class="res-hero__slide is-active"
-        data-bg-desktop="<?php echo esc_url( get_template_directory_uri() ); ?>/img/banner_detergentes_resplandor.png"
-        data-bg-mobile="<?php echo esc_url( get_template_directory_uri() ); ?>/img/banner_detergentes_resplandor_m.png"
-        aria-label="Productos de limpieza Resplandor"
-      ></a>
+      if ( ! empty( $banner_images ) ) :
+          $count = 0;
+          foreach ( $banner_images as $image ) :
+              $count++;
+              $image_url = wp_get_attachment_url( $image->ID );
+              $is_active = ($count === 1) ? 'is-active' : '';
+              
+              $banner_items[] = array(
+                  'url'   => $image_url,
+                  'title' => $image->post_title
+              );
+              ?>
+              <a
+                href="#"
+                class="res-hero__slide <?php echo esc_attr( $is_active ); ?>"
+                data-bg-desktop="<?php echo esc_url( $image_url ); ?>"
+                data-bg-mobile="<?php echo esc_url( $image_url ); ?>"
+                aria-label="<?php echo esc_attr( $image->post_title ); ?>"
+              ></a>
+              <?php
+          endforeach;
+      endif;
+      ?>
     </div>
 
     <!-- Flechas -->
@@ -47,11 +60,13 @@ get_header();
     <button class="res-hero__arrow res-hero__arrow--next" aria-label="Siguiente">›</button>
 
     <!-- Dots -->
+    <?php if ( ! empty( $banner_items ) && count( $banner_items ) > 1 ) : ?>
     <div class="res-hero__dots">
-      <button class="res-hero__dot is-active"></button>
-      <button class="res-hero__dot"></button>
-      <button class="res-hero__dot"></button>
+      <?php for ( $i = 0; $i < count( $banner_items ); $i++ ) : ?>
+        <button class="res-hero__dot <?php echo ($i === 0) ? 'is-active' : ''; ?>"></button>
+      <?php endfor; ?>
     </div>
+    <?php endif; ?>
   </div>
 </section>
 
