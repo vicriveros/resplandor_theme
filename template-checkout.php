@@ -77,9 +77,27 @@ if ( WC()->cart->is_empty() ) {
                             </div>
 
                             <!-- Dirección (Billing Address 1) -->
-                            <div class="col-span-1 md:col-span-2">
+                            <div class="col-span-1">
                                 <label for="billing_address_1" class="block text-sm font-semibold text-neutral-700 mb-2">Dirección de Entrega *</label>
-                                <input type="text" name="billing_address_1" id="billing_address_1" placeholder="Calle, número, barrio o ciudad" class="w-full px-4 py-3 rounded-xl border border-res-gray/60 focus:border-res-green focus:ring-1 focus:ring-res-green outline-none transition" required value="<?php echo esc_attr( WC()->checkout->get_value( 'billing_address_1' ) ); ?>">
+                                <input type="text" name="billing_address_1" id="billing_address_1" placeholder="Calle, número, barrio" class="w-full px-4 py-3 rounded-xl border border-res-gray/60 focus:border-res-green focus:ring-1 focus:ring-res-green outline-none transition" required value="<?php echo esc_attr( WC()->checkout->get_value( 'billing_address_1' ) ); ?>">
+                            </div>
+
+                            <!-- Ciudad (Billing City) -->
+                            <div class="col-span-1">
+                                <label for="billing_city" class="block text-sm font-semibold text-neutral-700 mb-2">Ciudad *</label>
+                                <input type="text" name="billing_city" id="billing_city" placeholder="Ej: Asunción" class="w-full px-4 py-3 rounded-xl border border-res-gray/60 focus:border-res-green focus:ring-1 focus:ring-res-green outline-none transition" required value="<?php echo esc_attr( WC()->checkout->get_value( 'billing_city' ) ); ?>">
+                            </div>
+
+                            <!-- Razon Social (Billing Company) -->
+                            <div class="col-span-1">
+                                <label for="billing_company" class="block text-sm font-semibold text-neutral-700 mb-2">Razón Social</label>
+                                <input type="text" name="billing_company" id="billing_company" placeholder="Nombre de la empresa" class="w-full px-4 py-3 rounded-xl border border-res-gray/60 focus:border-res-green focus:ring-1 focus:ring-res-green outline-none transition" value="<?php echo esc_attr( WC()->checkout->get_value( 'billing_company' ) ); ?>">
+                            </div>
+
+                            <!-- RUC (Billing RUC - Campo Personalizado) -->
+                            <div class="col-span-1">
+                                <label for="billing_ruc" class="block text-sm font-semibold text-neutral-700 mb-2">RUC</label>
+                                <input type="text" name="billing_ruc" id="billing_ruc" placeholder="Ej: 80012345-6" class="w-full px-4 py-3 rounded-xl border border-res-gray/60 focus:border-res-green focus:ring-1 focus:ring-res-green outline-none transition" value="<?php echo esc_attr( WC()->checkout->get_value( 'billing_ruc' ) ); ?>">
                             </div>
 
                             <!-- Nota adicional (Opcional - Order Comments) -->
@@ -95,7 +113,6 @@ if ( WC()->cart->is_empty() ) {
                         <input type="hidden" name="billing_email" value="cliente@resplandor.com.py"> <!-- Email placeholder -->
                         
                         <!-- Nuevos campos ocultos requeridos -->
-                        <input type="hidden" name="billing_city" value="Asunción">
                         <input type="hidden" name="billing_state" value="Asunción">
                         <input type="hidden" name="billing_postcode" value="1001">
                         
@@ -222,8 +239,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkoutForm = document.querySelector('form.checkout');
     const placeOrderBtn = document.getElementById('place_order');
     
-    // Configuración de WhatsApp (Cambiar este número al del negocio)
-    const whatsappNumber = '595961618105'; 
+    // Configuración de WhatsApp (Se obtiene desde el campo ACF 'wp_nro' de esta página)
+    const whatsappNumber = '<?php echo get_field('wp_nro') ?: '595961618105'; ?>'; 
 
     if (placeOrderBtn && checkoutForm) {
         placeOrderBtn.addEventListener('click', function(e) {
@@ -232,22 +249,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 const name = document.getElementById('billing_first_name').value;
                 const phone = document.getElementById('billing_phone').value;
                 const address = document.getElementById('billing_address_1').value;
-                const total = '<?php echo WC()->cart->get_total(); ?>';
+                const city = document.getElementById('billing_city').value;
+                const company = document.getElementById('billing_company').value;
+                const ruc = document.getElementById('billing_ruc').value;
+                let total = '<?php echo strip_tags(WC()->cart->get_total()); ?>';
+                total = total.replace(/&#[0-9]+;/g, '');
+                total = total.replace(/&nbsp;/g, '');
                 
                 let itemsList = '';
                 <?php
                 foreach ( WC()->cart->get_cart() as $cart_item ) {
                     $_product = $cart_item['data'];
-                    echo "itemsList += '- " . esc_js( $_product->get_name() ) . " x" . $cart_item['quantity'] . "\\n';";
+                    echo "itemsList += '- " . esc_js( $_product->get_name() ) . " x " . $cart_item['quantity'] . "\\n';";
                 }
                 ?>
 
                 const message = `*Nuevo Pedido desde la web - Resplandor*\n\n` +
                                 `*Nombre:* ${name}\n` +
                                 `*Teléfono:* ${phone}\n` +
-                                `*Dirección:* ${address}\n\n` +
+                                `*Dirección:* ${address}\n` +
+                                `*Ciudad:* ${city}\n` +
+                                `*Razón Social:* ${company}\n` +
+                                `*RUC:* ${ruc}\n\n` +
                                 `*Resumen del pedido:*\n${itemsList}\n` +
-                                `*Total:* ${total}\n\n` +
+                                `*Total:* Gs. ${total}\n\n` +
                                 `Hola, acabo de realizar mi pedido en la web y me gustaría coordinar la entrega.`;
 
                 const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
