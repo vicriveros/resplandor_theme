@@ -25,8 +25,8 @@
           <span class="font-medium">Obtené un 10% de descuento en tu primera compra!</span>
           <nav class="hidden md:flex gap-8 font-medium">
             <a href="<?php echo esc_url( get_template_directory_uri() ); ?>/catalogo_resplandor.pdf" target="_blank">Catálogos</a>
-            <a href="faq.html">FAQ</a>
-            <a href="contactos.html">Contactos</a>
+            <a href="https://resplandor.com.py/faq">FAQ</a>
+            <a href="https://resplandor.com.py/contactos">Contactos</a>
           </nav>
         </div>
       </div>
@@ -222,32 +222,32 @@
   <hr class="drawer-sep" />
 </div>
 
-      <a href="linea-hogar.html" class="drawer-link">
+      <a href="https://resplandor.com.py/index.php/categoria-producto/linea-hogar/" class="drawer-link">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/Hogar.svg" alt="" class="drawer-icon" />
         <span>Línea Hogar</span>
       </a>
 
-      <a href="linea-prendas.html" class="drawer-link">
+      <a href="https://resplandor.com.py/index.php/categoria-producto/linea-prendas/" class="drawer-link">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/Prendas.svg" alt="" class="drawer-icon" />
         <span>Línea Prendas</span>
       </a>
 
-      <a href="linea-desinfeccion.html" class="drawer-link">
+      <a href="https://resplandor.com.py/index.php/categoria-producto/linea-desinfeccion/" class="drawer-link">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/Desinfeccion.svg" alt="" class="drawer-icon" />
         <span>Línea Desinfección</span>
       </a>
 
-      <a href="linea-automotiva.html" class="drawer-link">
+      <a href="https://resplandor.com.py/index.php/categoria-producto/linea-automotiva/" class="drawer-link">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/Automotiva.svg" alt="" class="drawer-icon" />
         <span>Línea Automotiva</span>
       </a>
 
-      <a href="linea-piscinas.html" class="drawer-link">
+      <a href="https://resplandor.com.py/index.php/categoria-producto/linea-piscinas/" class="drawer-link">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/Piscinas.svg" alt="" class="drawer-icon" />
         <span>Línea Piscinas</span>
       </a>
 
-      <a href="linea-bazar.html" class="drawer-link">
+      <a href="https://resplandor.com.py/index.php/categoria-producto/linea-bazar/" class="drawer-link">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/Bazar.svg" alt="" class="drawer-icon" />
         <span>Línea Bazar</span>
       </a>
