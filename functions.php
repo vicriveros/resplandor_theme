@@ -88,3 +88,11 @@ function resplandor_cart_fragments( $fragments ) {
     return $fragments;
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'resplandor_cart_fragments' );
+
+/**
+ * Include the /acf folder 
+ */
+add_filter('acf/settings/load_json', function($paths) {
+    $paths[] = get_template_directory() . '/acf-json';
+    return $paths;
+});

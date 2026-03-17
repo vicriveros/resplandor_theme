@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const name = document.getElementById('billing_first_name').value;
                 const phone = document.getElementById('billing_phone').value;
                 const address = document.getElementById('billing_address_1').value;
-                const total = '<?php echo strip_tags(WC()->cart->get_total()); ?>';
+                const total = '<?php echo WC()->cart->get_total(); ?>';
                 
                 let itemsList = '';
                 <?php

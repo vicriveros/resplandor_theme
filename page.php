@@ -42,7 +42,7 @@ while ( have_posts() ) :
 
   <!-- Content -->
   <div class="mx-auto max-w-7xl px-4 py-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+    <div class="grid grid-cols-1 ">
       <?php the_content(); ?>
     </div>
   </div>
