@@ -30,7 +30,7 @@ while ( have_posts() ) :
   $tags = wc_get_product_term_ids( $product->get_id(), 'product_tag' );
 
   // Main Image
-  $main_image_url = get_the_post_thumbnail_url( $product->get_id(), 'full' );
+  $main_image_url = get_the_post_thumbnail_url( $product->get_id(), 'large' );
   if ( ! $main_image_url ) {
       $main_image_url = wc_placeholder_img_src();
   }
@@ -117,7 +117,7 @@ while ( have_posts() ) :
 
               <?php foreach ( $attachment_ids as $attachment_id ) : ?>
               <button type="button" class="res-thumb" aria-label="Miniatura">
-                <img src="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'gallery_thumbnail' ) ); ?>" data-full-image="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'full' ) ); ?>" alt="Miniatura" class="w-full h-full object-cover" loading="lazy" />
+                <img src="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'gallery_thumbnail' ) ); ?>" data-full-image="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'large' ) ); ?>" alt="Miniatura" class="w-full h-full object-cover" loading="lazy" />
               </button>
               <?php endforeach; ?>
             </div>

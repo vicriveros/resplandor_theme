@@ -34,7 +34,7 @@ get_header();
           $count = 0;
           foreach ( $banner_images as $image ) :
               $count++;
-              $image_url = wp_get_attachment_url( $image->ID );
+              $image_url = wp_get_attachment_image_url( $image->ID, 'large' );
               $is_active = ($count === 1) ? 'is-active' : '';
               
               $banner_items[] = array(
@@ -226,7 +226,7 @@ get_header();
                   // Usually stored in term meta 'thumbnail_id'
                   $thumbnail_id = get_term_meta( $brand->term_id, 'thumbnail_id', true );
                   if ( $thumbnail_id ) {
-                      $image_url = wp_get_attachment_url( $thumbnail_id );
+                      $image_url = wp_get_attachment_image_url( $thumbnail_id, 'large' );
                   } else {
                       $image_url = wc_placeholder_img_src();
                   }

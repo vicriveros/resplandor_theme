@@ -21,15 +21,15 @@
     <div class="res-footer__col">
       <h3 class="res-footer__title">Enlaces rápidos</h3>
       <ul class="res-footer__list">
-        <li><a href="nosotros.html" class="res-footer__link">Quiénes somos</a></li>
+        <li><a href="https://resplandor.com.py/quienes-somos" class="res-footer__link">Quiénes somos</a></li>
         <li>
-          <a href="#" class="res-footer__link" data-open-drawer>
+          <a href="https://resplandor.com.py/ofertas/" class="res-footer__link" data-open-drawer>
             Líneas de productos
           </a>
         </li>
-        <li><a href="marcas.html" class="res-footer__link">Nuestras marcas</a></li>
-        <li><a href="<?php echo esc_url( get_template_directory_uri() ); ?>/catalogo_resplandor.pdf" class="res-footer__link">Catálogo</a></li>
-        <li><a href="contactos.html" class="res-footer__link">Contacto</a></li>
+        <li><a href="https://resplandor.com.py/marcas" class="res-footer__link">Nuestras marcas</a></li>
+        <li><a href="https://resplandor.com.py/catalogo_resplandor.pdf" class="res-footer__link">Catálogo</a></li>
+        <li><a href="https://resplandor.com.py/contactos" class="res-footer__link">Contacto</a></li>
       </ul>
     </div>
 
@@ -145,15 +145,15 @@
     <details class="res-acc">
       <summary>Enlaces rápidos</summary>
       <ul class="res-footer__list">
-        <li><a href="#" class="res-footer__link">Quiénes somos</a></li>
+        <li><a href="https://resplandor.com.py/quienes-somos" class="res-footer__link">Quiénes somos</a></li>
         <li>
-          <a href="#" class="res-footer__link" data-open-drawer>
+          <a href="https://resplandor.com.py/ofertas/" class="res-footer__link" data-open-drawer>
             Líneas de productos
           </a>
         </li>
-        <li><a href="#" class="res-footer__link">Nuestras marcas</a></li>
-        <li><a href="#" class="res-footer__link">Catálogo</a></li>
-        <li><a href="#" class="res-footer__link">Contacto</a></li>
+        <li><a href="https://resplandor.com.py/marcas" class="res-footer__link">Nuestras marcas</a></li>
+        <li><a href="https://resplandor.com.py/catalogo_resplandor.pdf" class="res-footer__link">Catálogo</a></li>
+        <li><a href="https://resplandor.com.py/contactos" class="res-footer__link">Contacto</a></li>
       </ul>
     </details>
   </div>

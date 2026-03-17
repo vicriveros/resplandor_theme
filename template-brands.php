@@ -49,7 +49,7 @@ get_header();
                 foreach ( $brand_terms as $brand ) {
                     $thumbnail_id = get_term_meta( $brand->term_id, 'thumbnail_id', true );
                     if ( $thumbnail_id ) {
-                        $image_url = wp_get_attachment_url( $thumbnail_id );
+                        $image_url = wp_get_attachment_image_url( $thumbnail_id, 'large' );
                     } else {
                         $image_url = wc_placeholder_img_src();
                     }
