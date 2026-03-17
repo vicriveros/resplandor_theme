@@ -6,28 +6,9 @@
   
   <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/favicon.png">
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Tailwind Config -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            res: {
-              green: "#00a651",
-              gray: "#ceced0",
-              text: "#555555"
-            }
-          },
-          boxShadow: {
-            soft: "0 8px 24px rgba(0,0,0,.08)"
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Google Fonts preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <?php wp_head(); ?>
 </head>
@@ -69,25 +50,25 @@
         aria-controls="sideDrawer"
         aria-expanded="false"
       >
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/red.svg" alt="Menú" class="icon-svg" />
+        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/red.svg" alt="Menú" class="icon-svg" loading="lazy" />
       </button>
 
         <!-- Logo centrado -->
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="mobile-logo" aria-label="Inicio">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Grupo Resplandor" class="logo-resplandor" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Grupo Resplandor" class="logo-resplandor" fetchpriority="high" loading="eager" />
         </a>
 
         <!-- Acciones -->
         <div class="mobile-actions">
           <!-- Buscar -->
           <button id="searchToggle" class="icon-btn" type="button" aria-label="Buscar">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/buscar.svg" alt="" aria-hidden="true" class="icon-svg" />
+            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/buscar.svg" alt="" aria-hidden="true" class="icon-svg" loading="lazy" />
           </button>
 
           <!-- Carrito -->
           <button class="icon-btn cart-btn" type="button" aria-label="Carrito">
             <span class="cart-badge cart-count-dynamic"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" />
+            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" loading="lazy" />
           </button>
         </div>
       </div>
@@ -109,7 +90,7 @@
       <!-- DESKTOP: fila normal (logo - buscador - botones) -->
       <div class="hidden lg:flex lg:items-center lg:gap-4">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 shrink-0">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Grupo Resplandor" class="logo-resplandor" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Grupo Resplandor" class="logo-resplandor" loading="lazy" />
         </a>
 
         <div class="flex justify-center flex-1">
@@ -137,12 +118,12 @@
             aria-expanded="false"
             data-drawer-open
           >
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/red.svg" alt="Menú" class="icon-svg" />
+            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/red.svg" alt="Menú" class="icon-svg" loading="lazy" />
           </button>
 
           <a class="icon-btn cart-btn" href="<?php echo esc_url( wc_get_cart_url() ); ?>" aria-label="Carrito">
             <span class="cart-badge cart-count-dynamic"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" />
+            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/carro-de-la-compra.svg" alt="Carrito" class="icon-svg" loading="lazy" />
           </a>
         </div>
       </div>
@@ -195,7 +176,7 @@
   <aside id="sideDrawer" class="drawer" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="drawer-header">
       <div class="drawer-header-center">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Grupo Resplandor" class="drawer-logo" />
+        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Grupo Resplandor" class="drawer-logo" loading="lazy" />
       </div>
 
       <button id="drawerClose" class="drawer-close" type="button" aria-label="Cerrar menú">

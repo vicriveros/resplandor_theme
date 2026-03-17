@@ -1,6 +1,1470 @@
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+/*
+! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+  font-feature-settings: normal;
+  /* 5 */
+  font-variation-settings: normal;
+  /* 6 */
+  -webkit-tap-highlight-color: transparent;
+  /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-feature-settings: normal;
+  /* 2 */
+  font-variation-settings: normal;
+  /* 3 */
+  font-size: 1em;
+  /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  letter-spacing: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.visible {
+  visibility: visible;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.inset-0 {
+  inset: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.top-28 {
+  top: 7rem;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-11 {
+  height: 2.75rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.max-h-\[300px\] {
+  max-height: 300px;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-11 {
+  width: 2.75rem;
+}
+
+.w-14 {
+  width: 3.5rem;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-\[78\%\] {
+  width: 78%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.max-w-\[1000px\] {
+  max-width: 1000px;
+}
+
+.max-w-\[520px\] {
+  max-width: 520px;
+}
+
+.max-w-none {
+  max-width: none;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.resize {
+  resize: both;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.place-items-center {
+  place-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.gap-x-6 {
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+
+.gap-y-1 {
+  row-gap: 0.25rem;
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.divide-res-gray\/30 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(206 206 208 / 0.3);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-x {
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-l {
+  border-left-width: 1px;
+}
+
+.border-r {
+  border-right-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-red-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
+}
+
+.border-res-gray\/30 {
+  border-color: rgb(206 206 208 / 0.3);
+}
+
+.border-res-gray\/40 {
+  border-color: rgb(206 206 208 / 0.4);
+}
+
+.border-res-gray\/50 {
+  border-color: rgb(206 206 208 / 0.5);
+}
+
+.border-res-gray\/60 {
+  border-color: rgb(206 206 208 / 0.6);
+}
+
+.border-res-green\/20 {
+  border-color: rgb(0 166 81 / 0.2);
+}
+
+.bg-neutral-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
+}
+
+.bg-neutral-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 250 250 / var(--tw-bg-opacity, 1));
+}
+
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity, 1));
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
+}
+
+.bg-res-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 166 81 / var(--tw-bg-opacity, 1));
+}
+
+.bg-res-green\/10 {
+  background-color: rgb(0 166 81 / 0.1);
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[radial-gradient\(circle_at_20\%_30\%\2c white_0\%\2c transparent_40\%\)\2c radial-gradient\(circle_at_85\%_25\%\2c white_0\%\2c transparent_45\%\)\2c radial-gradient\(circle_at_60\%_90\%\2c white_0\%\2c transparent_45\%\)\] {
+  background-image: radial-gradient(circle at 20% 30%,white 0%,transparent 40%),radial-gradient(circle at 85% 25%,white 0%,transparent 45%),radial-gradient(circle at 60% 90%,white 0%,transparent 45%);
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.from-res-green\/95 {
+  --tw-gradient-from: rgb(0 166 81 / 0.95) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 166 81 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-res-green {
+  --tw-gradient-to: rgb(0 166 81 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #00a651 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.to-res-green\/90 {
+  --tw-gradient-to: rgb(0 166 81 / 0.9) var(--tw-gradient-to-position);
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.p-10 {
+  padding: 2.5rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.py-3\.5 {
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.pb-40 {
+  padding-bottom: 10rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pt-40 {
+  padding-top: 10rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-\[10px\] {
+  font-size: 10px;
+}
+
+.text-\[11px\] {
+  font-size: 11px;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.text-inherit {
+  color: inherit;
+}
+
+.text-neutral-700 {
+  --tw-text-opacity: 1;
+  color: rgb(64 64 64 / var(--tw-text-opacity, 1));
+}
+
+.text-neutral-800 {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity, 1));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
+
+.text-res-green {
+  --tw-text-opacity: 1;
+  color: rgb(0 166 81 / var(--tw-text-opacity, 1));
+}
+
+.text-res-text {
+  --tw-text-opacity: 1;
+  color: rgb(85 85 85 / var(--tw-text-opacity, 1));
+}
+
+.text-res-text\/50 {
+  color: rgb(85 85 85 / 0.5);
+}
+
+.text-res-text\/60 {
+  color: rgb(85 85 85 / 0.6);
+}
+
+.text-res-text\/70 {
+  color: rgb(85 85 85 / 0.7);
+}
+
+.text-res-text\/75 {
+  color: rgb(85 85 85 / 0.75);
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-white\/60 {
+  color: rgb(255 255 255 / 0.6);
+}
+
+.text-white\/85 {
+  color: rgb(255 255 255 / 0.85);
+}
+
+.line-through {
+  text-decoration-line: line-through;
+}
+
+.opacity-20 {
+  opacity: 0.2;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.shadow-soft {
+  --tw-shadow: 0 8px 24px rgba(0,0,0,.08);
+  --tw-shadow-colored: 0 8px 24px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.brightness-0 {
+  --tw-brightness: brightness(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.invert {
+  --tw-invert: invert(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+/* ==========================================================================
+   CUSTOM THEME STYLES (From original web.css)
+   ========================================================================== */
+
 /* =========================
    VARIABLES DE MARCA
 ========================= */
+
 :root {
   --res-green: #00a651;
   --res-gray: #ceced0;
@@ -8,6 +1472,7 @@
 }
 
 /* Evita saltos por scroll anchoring */
+
 html,
 body {
   overflow-anchor: none;
@@ -15,8 +1480,8 @@ body {
   overflow-x: hidden;
 }
 
-
 /* Spacer del navbar fixed */
+
 #nav-spacer {
   height: var(--nav-h, 0px);
 }
@@ -24,6 +1489,7 @@ body {
 /* =========================
    BASE
 ========================= */
+
 body {
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 400;
@@ -34,6 +1500,7 @@ body {
 /* =========================
    UTILIDADES
 ========================= */
+
 .nav-ease {
   transition: all 0.25s ease;
 }
@@ -45,6 +1512,7 @@ strong {
 /* =========================
    LOGO
 ========================= */
+
 .logo-resplandor {
   height: 58px !important;
   width: auto;
@@ -65,6 +1533,7 @@ strong {
 /* =========================
    BUSCADOR
 ========================= */
+
 .search-input {
   border: 2px solid var(--res-gray);
   border-radius: 14px;
@@ -82,6 +1551,7 @@ strong {
 /* =========================
    BOTONES CIRCULARES (MENÚ / CARRITO)
 ========================= */
+
 .icon-btn {
   width: 52px;
   height: 52px;
@@ -111,16 +1581,19 @@ strong {
 }
 
 /* SVG dentro de botones */
+
 .icon-svg {
   width: 22px;
   height: 22px;
   display: block;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /* =========================
    CARRITO
 ========================= */
+
 .cart-btn {
   position: relative;
 }
@@ -152,17 +1625,16 @@ strong {
           hue-rotate(98deg);
 }*/
 
-
 .icon-btn:hover .icon-svg {
   opacity: .9;
 }
-
 
 /* =========================
    DRAWER (MENÚ LATERAL)
 ========================= */
 
 /* Overlay */
+
 .drawer-overlay {
   position: fixed;
   inset: 0;
@@ -171,6 +1643,7 @@ strong {
 }
 
 /* Contenedor drawer */
+
 .drawer {
   position: fixed;
   top: 0;
@@ -180,11 +1653,9 @@ strong {
   background: #fff;
   z-index: 70;
   box-shadow: 20px 0 40px rgba(0, 0, 0, .12);
-
   /* Estado cerrado */
   transform: translateX(-105%);
   transition: transform .25s ease;
-
   display: flex;
   flex-direction: column;
 }
@@ -194,6 +1665,7 @@ strong {
 }
 
 /* Header: logo centrado + cerrar a la derecha */
+
 .drawer-header {
   position: relative;
   padding: 18px 16px;
@@ -213,21 +1685,19 @@ strong {
 }
 
 /* Botón cerrar */
+
 .drawer-close {
   position: absolute;
   top: 16px;
   right: 16px;
-
   width: 42px;
   height: 42px;
   border-radius: 999px;
   border: 0;
   background: #f1f1f1;
   cursor: pointer;
-
   font-size: 20px;
   line-height: 0;
-
   display: grid;
   place-items: center;
   transition: background .2s ease;
@@ -238,24 +1708,23 @@ strong {
 }
 
 /* Navegación */
+
 .drawer-nav {
   padding: 10px 12px 18px;
   overflow: auto;
 }
 
 /* Link: ícono izquierda + texto */
+
 .drawer-link {
   display: flex;
   align-items: center;
   gap: 14px;
-
   padding: 14px 14px;
   border-radius: 14px;
-
   color: var(--res-text);
   text-decoration: none;
   font-weight: 500;
-
   transition: background .2s ease, color .2s ease;
 }
 
@@ -265,14 +1734,17 @@ strong {
 }
 
 /* Ícono dentro del link */
+
 .drawer-icon {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /* Hover: ícono pasa a verde */
+
 /*
 .drawer-link:hover .drawer-icon{
   filter: brightness(0) saturate(100%)
@@ -282,7 +1754,6 @@ strong {
 .drawer-link:hover .drawer-icon {
   opacity: .9;
 }
-
 
 .drawer.is-open .drawer-link {
   animation: fadeInUp .25s ease both;
@@ -301,12 +1772,13 @@ strong {
 }
 
 /* Bloquear scroll del body cuando está abierto */
+
 body.drawer-open {
   overflow: hidden;
 }
 
-
 /* ===== Drawer Footer ===== */
+
 .drawer-footer {
   margin-top: auto;
   padding: 18px 16px 22px;
@@ -325,7 +1797,6 @@ body.drawer-open {
   font-weight: 600;
 }
 
-
 /* =========================
    NAVBAR DROPDOWN
 ========================= */
@@ -335,6 +1806,7 @@ body.drawer-open {
 ========================= */
 
 /* Links del menú horizontal */
+
 .nav-main a,
 .nav-link {
   position: relative;
@@ -342,23 +1814,23 @@ body.drawer-open {
   align-items: center;
   gap: 6px;
   cursor: pointer;
-
   color: var(--res-text);
   text-decoration: none;
   background: none;
   border: 0;
   font: inherit;
-
   transition: color .2s ease;
 }
 
 /* Hover unificado (Inicio, Marcas, Sobre nosotros, Ofertas, Categorías) */
+
 .nav-main a:hover,
 .nav-link:hover {
   color: var(--res-green);
 }
 
 /* Estado activo (opcional, por URL o JS) */
+
 .nav-main a.active {
   color: var(--res-green);
   font-weight: 600;
@@ -373,32 +1845,31 @@ body.drawer-open {
 }
 
 /* Flechita */
+
 .nav-caret {
   transition: transform .2s ease;
 }
 
 /* Menú desplegable */
+
 .dropdown-menu {
   position: absolute;
   top: 120%;
   left: 0;
   min-width: 240px;
-
   background: #fff;
   border-radius: 16px;
   padding: 10px;
-
   box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
   transition: all .2s ease;
-
   z-index: 50;
 }
 
 /* Items del dropdown */
+
 .dropdown-menu a {
   display: block;
   padding: 12px 14px;
@@ -413,6 +1884,7 @@ body.drawer-open {
 }
 
 /* Mostrar dropdown */
+
 .nav-dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
@@ -420,6 +1892,7 @@ body.drawer-open {
 }
 
 /* Rotación flecha */
+
 .nav-dropdown:hover .nav-caret {
   transform: rotate(180deg);
 }
@@ -429,6 +1902,7 @@ body.drawer-open {
 ========================= */
 
 /* En pantallas chicas: botones y campos un poco más compactos */
+
 @media (max-width: 640px) {
   .icon-btn {
     width: 46px;
@@ -450,10 +1924,10 @@ body.drawer-open {
 }
 
 /* En scroll compacto, bajar un poquito la altura del buscador */
+
 #res-navbar.shadow-soft .search-input {
   box-shadow: none;
 }
-
 
 /* =========================
    MOBILE HEADER (UX Pattern)
@@ -474,13 +1948,15 @@ body.drawer-open {
 }
 
 /* Ajusta tamaño del logo en mobile */
+
 @media (max-width: 640px) {
   .mobile-logo img {
     height: 44px;
     /* ajustá a 40-52 según te guste */
     width: auto;
     max-width: 170px;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
 }
 
@@ -491,11 +1967,13 @@ body.drawer-open {
 }
 
 /* buscador desplegable */
+
 .mobile-search {
   margin-top: 10px;
 }
 
 /* animación suave opcional */
+
 .mobile-search[hidden] {
   display: none;
 }
@@ -516,16 +1994,14 @@ body.drawer-open {
   }
 }
 
-
-
 .drawer-divider {
   height: 1px;
   background: rgba(0, 0, 0, .08);
   margin: 10px 12px;
 }
 
-
 /* Separador del drawer */
+
 .drawer-sep {
   border: 0;
   height: 1px;
@@ -534,19 +2010,21 @@ body.drawer-open {
 }
 
 /* Ocultar sección mobile-only en desktop */
+
 @media (min-width: 1024px) {
   .drawer-mobile-only {
     display: none !important;
   }
 }
 
-
 /* ===== Drawer: bloque SOLO mobile (links del menú horizontal) ===== */
+
 .drawer-mobile-only {
   display: block;
 }
 
 /* En desktop NO mostrar Inicio/Marcas/Sobre/Ofertas dentro del drawer */
+
 @media (min-width: 1024px) {
   .drawer-mobile-only {
     display: none;
@@ -554,6 +2032,7 @@ body.drawer-open {
 }
 
 /* Asegurar tamaño de iconos (evita SVG gigantes como red.svg) */
+
 .drawer-icon {
   width: 28px;
   height: 28px;
@@ -562,14 +2041,13 @@ body.drawer-open {
 }
 
 /* Separador dentro del drawer */
+
 .drawer-sep {
   border: 0;
   height: 1px;
   background: rgba(0, 0, 0, 0.08);
   margin: 10px 12px;
 }
-
-
 
 :root {
   --res-green: #00A651;
@@ -578,11 +2056,13 @@ body.drawer-open {
 }
 
 /* ===== HERO SLIDER (solo imagen) ===== */
+
 .res-hero {
   width: 100%;
 }
 
 /* Desktop / default: como antes */
+
 .res-hero__viewport {
   position: relative;
   /* clave para flechas/dots */
@@ -591,12 +2071,12 @@ body.drawer-open {
 }
 
 /* Mobile / tablet: responsive */
+
 @media (max-width: 768px) {
   .res-hero__viewport {
     height: clamp(320px, 52vh, 620px);
   }
 }
-
 
 .res-hero__track {
   display: flex;
@@ -617,6 +2097,7 @@ body.drawer-open {
 
 /* Si querés que NO se recorte nada (mostrar imagen completa):
    (queda con “bandas” si sobra espacio) */
+
 /*
 .res-hero__slide{
   background-size: contain;
@@ -624,8 +2105,8 @@ body.drawer-open {
 }
 */
 
-
 /* ===== Flechas (si ya están OK, no hace falta tocar) ===== */
+
 .res-hero__arrow {
   position: absolute;
   top: 50%;
@@ -651,12 +2132,9 @@ body.drawer-open {
 }
 
 /* Active (click) */
+
 .res-hero__arrow:active {
   transform: translateY(-50%) scale(.95);
-}
-
-
-.res-hero__arrow:active {
   transform: translateY(-50%) scale(.97);
 }
 
@@ -669,6 +2147,7 @@ body.drawer-open {
 }
 
 /* ===== Dots (si ya está OK, no hace falta tocar) ===== */
+
 .res-hero__dots {
   position: absolute;
   left: 50%;
@@ -708,6 +2187,7 @@ body.drawer-open {
 }
 
 /* ====== Productos destacados (Resplandor) ====== */
+
 .res-featured {
   padding: 56px 0;
   background: #fafafa;
@@ -738,6 +2218,7 @@ body.drawer-open {
 }
 
 /* Grid responsive */
+
 .res-grid {
   display: grid;
   gap: 22px;
@@ -766,9 +2247,7 @@ body.drawer-open {
   .res-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
 
-@media (max-width: 420px) {
   .res-card__media {
     padding: 18px 12px 8px;
     min-height: 170px;
@@ -793,6 +2272,7 @@ body.drawer-open {
 }
 
 /* Card */
+
 .res-card {
   position: relative;
   border-radius: 16px;
@@ -810,6 +2290,7 @@ body.drawer-open {
 }
 
 /* borde/halo moderno al hover */
+
 .res-card::after {
   content: "";
   position: absolute;
@@ -826,6 +2307,7 @@ body.drawer-open {
 }
 
 /* Badge */
+
 .res-badge {
   position: absolute;
   top: 14px;
@@ -846,6 +2328,7 @@ body.drawer-open {
 }
 
 /* Media */
+
 .res-card__media {
   display: grid;
   place-items: center;
@@ -864,26 +2347,29 @@ body.drawer-open {
 }
 
 /* Zoom suave de tendencia */
+
 .res-card:hover .res-card__media img,
 .res-card:focus-within .res-card__media img {
   transform: scale(1.08);
 }
 
-
-
 /* Body */
+
 /* Card base: asegura estructura vertical */
+
 .res-card {
   display: flex;
   flex-direction: column;
 }
 
 /* Media fijo arriba */
+
 .res-card__media {
   display: block;
 }
 
 /* Body con GRID para alinear perfecto título + precio */
+
 .res-card__body {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -893,6 +2379,7 @@ body.drawer-open {
 }
 
 /* Título: hasta 2 líneas, consistente */
+
 .res-card__name {
   margin: 0;
   line-height: 1.25;
@@ -907,6 +2394,7 @@ body.drawer-open {
 }
 
 /* Fila inferior: precio + carrito siempre visible */
+
 .res-card__row {
   display: flex;
   align-items: flex-end;
@@ -915,15 +2403,15 @@ body.drawer-open {
 }
 
 /* Precio en columna (old arriba, new abajo) */
+
 .res-price {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-
-
 /* Precio anterior (OLD) */
+
 .res-price__old {
   font-size: 14px;
   /* 👈 más chico */
@@ -940,6 +2428,7 @@ body.drawer-open {
 }
 
 /* cart button */
+
 .res-card__row .res-cart.button,
 .res-cart {
   width: 44px !important;
@@ -960,21 +2449,23 @@ body.drawer-open {
 }
 
 /* Update WooCommerce adding class styling specifically for custom button */
+
 .res-card__row .res-cart.button.loading {
   opacity: 0.5;
 }
 
 /* Icono carrito */
+
 .res-cart__icon {
   width: 22px;
   height: 22px;
   display: block;
   margin: 0;
-
   filter: none !important;
 }
 
 /* Hover */
+
 .res-card__row .res-cart.button:hover,
 .res-cart:hover {
   background: var(--res-green);
@@ -983,6 +2474,7 @@ body.drawer-open {
 }
 
 /* Ícono blanco al hover */
+
 .res-card__row .res-cart.button:hover .res-cart__icon,
 .res-cart:hover .res-cart__icon {
   filter: brightness(0) invert(1) !important;
@@ -990,20 +2482,20 @@ body.drawer-open {
 }
 
 /* Click */
+
 .res-card__row .res-cart.button:active,
 .res-cart:active {
   transform: scale(0.95);
   box-shadow: 0 4px 10px rgba(0, 166, 81, 0.25);
 }
 
-
 /* ===== Partners Parallax + Carousel (FIX premium) ===== */
+
 .res-partners {
   position: relative;
   padding: 92px 0;
   overflow: hidden;
   isolation: isolate;
-
   background-image: url("../img/bg_marcas_home.png");
   background-size: cover;
   background-position: center;
@@ -1035,21 +2527,23 @@ body.drawer-open {
 }
 
 /* ✅ Igual que el HERO: flechas superpuestas, no “empujan” el layout */
+
 .res-partners__carousel {
   position: relative;
 }
 
 /* Viewport a ancho completo */
+
 .res-partners__viewport {
   overflow: hidden;
   border-radius: 18px;
   outline: none;
-
   /* ✅ “padding de seguridad” para que no tapen las flechas */
   padding: 0 72px;
 }
 
 /* Track normal (sin center que rompe el cálculo visual) */
+
 .res-partners__track {
   display: flex;
   gap: 22px;
@@ -1060,16 +2554,15 @@ body.drawer-open {
 }
 
 /* ✅ 4 cards por vista en desktop, usando el ancho real del viewport */
+
 .res-partners__item {
   flex: 0 0 calc((100% - (22px * 3)) / 4);
   max-width: calc((100% - (22px * 3)) / 4);
-
   border-radius: 18px;
   overflow: hidden;
   background: #ffffff;
   box-shadow: 0 10px 26px rgba(0, 0, 0, .22);
   transition: transform .25s ease, box-shadow .25s ease;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1083,35 +2576,34 @@ body.drawer-open {
 }
 
 /* Logo más grande en desktop */
+
 .res-partners__item img {
   display: block;
   width: auto;
   height: 140px;
   max-width: 360px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /* Flechas (superpuestas, como el HERO) */
+
 .res-partners__arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-
   width: 44px;
   height: 44px;
   border-radius: 999px;
   border: 0;
   cursor: pointer;
-
   display: grid;
   place-items: center;
-
   background: rgba(255, 255, 255, .95);
   color: var(--res-green);
   font-size: 26px;
   line-height: 1;
-
   box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
   transition: transform .15s ease, background .15s ease, color .15s ease;
 }
@@ -1141,6 +2633,7 @@ body.drawer-open {
 }
 
 /* Tablet: 3 por vista */
+
 @media (max-width: 1024px) {
   .res-partners__viewport {
     padding: 0 64px;
@@ -1153,6 +2646,7 @@ body.drawer-open {
 }
 
 /* Mobile/tablet: desactivar fixed */
+
 @media (max-width: 768px) {
   .res-partners {
     padding: 54px 0;
@@ -1166,6 +2660,7 @@ body.drawer-open {
 }
 
 /* Mobile: 1 por vista + logo grande */
+
 @media (max-width: 640px) {
   .res-partners__item {
     flex: 0 0 100%;
@@ -1182,10 +2677,10 @@ body.drawer-open {
   }
 }
 
-
 /* =========================
    ARTÍCULOS DESTACADOS
 ========================= */
+
 .res-featured {
   padding: 72px 0;
   background: #fff;
@@ -1216,6 +2711,7 @@ body.drawer-open {
 }
 
 /* 4 cards en desktop */
+
 .res-featured__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1224,6 +2720,7 @@ body.drawer-open {
 }
 
 /* Card */
+
 .res-fcard {
   display: grid;
   grid-template-columns: 210px 1fr;
@@ -1243,6 +2740,7 @@ body.drawer-open {
 }
 
 /* Media */
+
 .res-fcard__media {
   position: relative;
   border-radius: 16px;
@@ -1259,45 +2757,40 @@ body.drawer-open {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   /* ✅ llena y recorta */
-  object-position: center;
+  -o-object-position: center;
+     object-position: center;
 }
-
 
 .res-fcard__media {
   height: 180px;
   /* probá 180–220 según gusto */
 }
 
-
 .res-fcard__badge {
   position: absolute;
   top: 12px;
   left: 12px;
-
   background: rgba(255, 255, 255, .75);
   /* blanco con opacidad */
   color: var(--res-green);
   /* texto verde Resplandor */
-
   padding: 6px 12px;
   border-radius: 999px;
-
   font-size: 13px;
   font-weight: 500;
   /* sin grueso */
   letter-spacing: .02em;
-
   backdrop-filter: blur(6px);
   /* efecto glass */
   -webkit-backdrop-filter: blur(6px);
-
   border: 1px solid rgba(0, 166, 81, .35);
 }
 
-
 /* Body */
+
 .res-fcard__body {
   display: grid;
   align-content: start;
@@ -1370,6 +2863,7 @@ body.drawer-open {
 }
 
 /* Actions */
+
 .res-fcard__actions {
   display: flex;
   align-items: center;
@@ -1384,15 +2878,12 @@ body.drawer-open {
   font-size: 14px;
   /* ↓ tamaño texto */
   border-radius: 12px;
-
   background: rgba(0, 166, 81, .10);
   color: var(--res-green);
   /* ✅ texto verde */
   border: 1px solid rgba(0, 166, 81, .25);
-
   font-weight: 500;
   text-decoration: none;
-
   transition: background .18s ease, transform .18s ease;
 }
 
@@ -1425,6 +2916,7 @@ body.drawer-open {
 }
 
 /* Responsive */
+
 @media (max-width: 1024px) {
   .res-featured__grid {
     grid-template-columns: 1fr;
@@ -1445,11 +2937,6 @@ body.drawer-open {
     height: 170px;
   }
 }
-
-
-
-
-
 
 /* =========================
    FOOTER RESPLANDOR (LIGHT)
@@ -1517,6 +3004,7 @@ body.drawer-open {
 }
 
 /* Links */
+
 .res-footer__list {
   list-style: none;
   padding: 0;
@@ -1549,6 +3037,7 @@ body.drawer-open {
 }
 
 /* Horarios */
+
 .res-footer__hours {
   display: grid;
   gap: 18px;
@@ -1564,7 +3053,8 @@ body.drawer-open {
   grid-template-columns: 1fr auto;
   /* texto | hora */
   align-items: center;
-  column-gap: 24px;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
 }
 
 .res-footer__day {
@@ -1584,11 +3074,13 @@ body.drawer-open {
 
 @media (max-width: 640px) {
   .res-footer__hourRow {
-    column-gap: 16px;
+    -moz-column-gap: 16px;
+         column-gap: 16px;
   }
 }
 
 /* Contacto */
+
 .res-footer__contact {
   list-style: none;
   padding: 0;
@@ -1622,8 +3114,8 @@ body.drawer-open {
   color: #1e1e1e;
 }
 
-
 /* Social */
+
 .res-footer__social {
   display: flex;
   gap: 12px;
@@ -1636,21 +3128,19 @@ body.drawer-open {
   border-radius: 14px;
   display: grid;
   place-items: center;
-
   background: var(--res-green);
   /* ✅ verde Resplandor */
   border: none;
   /* ❌ sin borde */
-
   transition:
     transform .18s ease,
     background-color .18s ease,
     box-shadow .18s ease;
-
   text-decoration: none;
 }
 
 /* Íconos */
+
 .res-footer__socialBtn img {
   width: 20px;
   height: 20px;
@@ -1659,6 +3149,7 @@ body.drawer-open {
 }
 
 /* Hover */
+
 .res-footer__socialBtn:hover {
   background: #009245;
   /* verde un poco más oscuro */
@@ -1667,6 +3158,7 @@ body.drawer-open {
 }
 
 /* Bottom */
+
 .res-footer__bottom {
   padding: 18px 0;
   border-top: 1px solid rgba(0, 0, 0, .06);
@@ -1681,6 +3173,7 @@ body.drawer-open {
 }
 
 /* Responsive */
+
 @media (max-width: 1024px) {
   .res-footer__inner {
     grid-template-columns: 1fr 1fr;
@@ -1699,6 +3192,7 @@ body.drawer-open {
 }
 
 /* Legal + crédito */
+
 .res-footer__legal {
   text-align: center;
   font-size: 14px;
@@ -1707,7 +3201,6 @@ body.drawer-open {
   font-weight: 400;
   /* ✅ nada grueso */
 }
-
 
 .res-footer__dot {
   margin: 0 10px;
@@ -1732,10 +3225,8 @@ body.drawer-open {
   color: #ffffff;
 }
 
-
-
-
 /* Mostrar footer “accordion” en mobile y el grid en desktop */
+
 .res-footer__mobile {
   display: none;
 }
@@ -1759,6 +3250,7 @@ body.drawer-open {
 }
 
 /* Accordion look premium */
+
 .res-acc {
   border: 1px solid rgba(0, 0, 0, .08);
   border-radius: 16px;
@@ -1798,10 +3290,10 @@ body.drawer-open {
   padding: 0 16px 14px;
 }
 
-
 /* =========================
    PRODUCT DETAILS - THUMBS
 ========================= */
+
 .res-thumb {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -1825,33 +3317,27 @@ body.drawer-open {
   box-shadow: 0 0 0 4px rgba(0, 166, 81, .12);
 }
 
-
 /* =========================
    CTA WhatsApp – SIMPLE & OK
 ========================= */
-
 
 .res-whatsapp {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-
   width: 100%;
   /* 👈 ocupa todo el ancho */
   padding: 14px 16px;
   border-radius: 20px;
-
   border: 1px solid var(--res-green);
   /* borde fino */
   background: #fff;
-
   color: var(--res-green);
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
-
   transition: background .2s ease, box-shadow .2s ease, transform .15s ease;
 }
 
@@ -1861,27 +3347,26 @@ body.drawer-open {
   transform: translateY(-1px);
 }
 
-
-
 /* Ícono WhatsApp: SIN filter y SIN animación (evita cuelgues GPU) */
+
 .res-whatsapp__icon {
   width: 28px;
   height: 28px;
   flex: 0 0 28px;
-
   filter: none !important;
   animation: none !important;
   transform: none !important;
 }
 
 /* Hover: nada de transform/anim */
+
 .res-whatsapp:hover .res-whatsapp__icon {
   animation: none !important;
   transform: none !important;
 }
 
-
 /* Zoom suave en cards (más seguro: sin will-change) */
+
 .woocommerce-breadcrumb a,
 body.woocommerce-page .woocommerce-breadcrumb a,
 .woocommerce:where(body:not(.woocommerce-uses-block-theme)) .woocommerce-breadcrumb a {
@@ -1897,21 +3382,21 @@ body.woocommerce-page .woocommerce-breadcrumb a,
 }
 
 /* Zoom */
+
 .res-card:hover .res-card__media img,
 .res-card:focus-within .res-card__media img {
   transform: scale(1.06);
 }
 
-
 /* =========================
    PRODUCT GALLERY (Resplandor)
 ========================= */
+
 .res-gal__arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-
   width: 46px;
   height: 46px;
   border-radius: 999px;
@@ -1921,11 +3406,9 @@ body.woocommerce-page .woocommerce-breadcrumb a,
   color: var(--res-green);
   font-size: 28px;
   line-height: 1;
-
   display: grid;
   place-items: center;
   cursor: pointer;
-
   box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
   transition: transform .15s ease, background .15s ease, color .15s ease, opacity .15s ease;
 }
@@ -1960,6 +3443,7 @@ body.woocommerce-page .woocommerce-breadcrumb a,
 }
 
 /* Thumbs strip */
+
 .res-gal__thumbs {
   display: flex;
   gap: 12px;
@@ -1980,6 +3464,7 @@ body.woocommerce-page .woocommerce-breadcrumb a,
 ========================= */
 
 /* Chrome, Safari, Edge */
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -1987,32 +3472,30 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Firefox */
+
 input[type="number"] {
   -moz-appearance: textfield;
-  appearance: textfield;
+  -webkit-appearance: textfield;
+          appearance: textfield;
 }
-
 
 /* =========================
    Carrusel - Flechas estilo Resplandor
 ========================= */
+
 .res-carousel-arrow {
   width: 42px;
   height: 42px;
   border-radius: 999px;
-
   border: 1px solid rgba(206, 206, 208, .7);
   /* res-gray */
   background: #fff;
   color: var(--res-green);
-
   font-size: 24px;
   line-height: 1;
-
   display: grid;
   place-items: center;
   cursor: pointer;
-
   box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
   transition: all .18s ease;
 }
@@ -2041,6 +3524,7 @@ input[type="number"] {
 }
 
 /* Evita que se recorten las sombras dentro del viewport del carrusel */
+
 [data-carousel-viewport] {
   padding: 24px 12px;
 }
@@ -2048,5 +3532,223 @@ input[type="number"] {
 @media (min-width: 640px) {
   [data-carousel-viewport] {
     padding: 24px 16px;
+  }
+}
+
+.placeholder\:text-res-text\/50::-moz-placeholder {
+  color: rgb(85 85 85 / 0.5);
+}
+
+.placeholder\:text-res-text\/50::placeholder {
+  color: rgb(85 85 85 / 0.5);
+}
+
+.hover\:border-res-green\/60:hover {
+  border-color: rgb(0 166 81 / 0.6);
+}
+
+.hover\:bg-neutral-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-neutral-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 250 250 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-res-green\/5:hover {
+  background-color: rgb(0 166 81 / 0.05);
+}
+
+.hover\:text-res-green:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 166 81 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
+.hover\:brightness-95:hover {
+  --tw-brightness: brightness(.95);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.focus\:border-res-green:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 166 81 / var(--tw-border-opacity, 1));
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:ring-1:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-res-green:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(0 166 81 / var(--tw-ring-opacity, 1));
+}
+
+.active\:scale-\[\.98\]:active {
+  --tw-scale-x: .98;
+  --tw-scale-y: .98;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.active\:scale-\[\.99\]:active {
+  --tw-scale-x: .99;
+  --tw-scale-y: .99;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@media (min-width: 640px) {
+  .sm\:w-\[48\%\] {
+    width: 48%;
+  }
+
+  .sm\:p-6 {
+    padding: 1.5rem;
+  }
+
+  .sm\:p-7 {
+    padding: 1.75rem;
+  }
+
+  .sm\:p-8 {
+    padding: 2rem;
+  }
+
+  .sm\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:grid {
+    display: grid;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .md\:p-6 {
+    padding: 1.5rem;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:w-\[31\%\] {
+    width: 31%;
+  }
+
+  .lg\:max-w-\[560px\] {
+    max-width: 560px;
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:gap-10 {
+    gap: 2.5rem;
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
+  }
+
+  .lg\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:flex {
+    display: flex;
+  }
+
+  .xl\:w-\[23\%\] {
+    width: 23%;
   }
 }

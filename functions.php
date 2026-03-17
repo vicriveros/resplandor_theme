@@ -3,6 +3,14 @@
  * Resplandor Theme functions and definitions
  */
 
+/**
+ * Enable gzip output compression to reduce bandwidth on HTML, CSS, and JS.
+ * Only activates when the server does not already handle gzip.
+ */
+if ( ! ini_get( 'zlib.output_compression' ) && extension_loaded( 'zlib' ) ) {
+    ob_start( 'ob_gzhandler' );
+}
+
 if ( ! function_exists( 'resplandor_setup' ) ) :
 	function resplandor_setup() {
 		// Add default posts and comments RSS feed links to head.
@@ -43,7 +51,8 @@ add_action( 'after_setup_theme', 'resplandor_setup' );
  */
 function resplandor_scripts() {
 	// Enqueue Google Fonts
-	wp_enqueue_style( 'resplandor-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', array(), null );
+	// Google Fonts — display=swap prevents render-blocking
+	wp_enqueue_style( 'resplandor-fonts', 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700&display=swap', array(), null );
 
 	// Enqueue Theme Main CSS
 	wp_enqueue_style( 'resplandor-style', get_template_directory_uri() . '/css/web.css', array(), filemtime( get_template_directory() . '/css/web.css' ) );

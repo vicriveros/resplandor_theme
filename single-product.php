@@ -112,12 +112,12 @@ while ( have_posts() ) :
             <div class="res-gal__thumbs" data-gal-thumbs>
               <!-- Main Image Thumb -->
               <button type="button" class="res-thumb is-active" aria-label="Miniatura Principal">
-                <img src="<?php echo esc_url( get_the_post_thumbnail_url( $product->get_id(), 'gallery_thumbnail' ) ?: $main_image_url ); ?>" alt="Miniatura Principal" class="w-full h-full object-cover" />
+                <img src="<?php echo esc_url( get_the_post_thumbnail_url( $product->get_id(), 'gallery_thumbnail' ) ?: $main_image_url ); ?>" alt="Miniatura Principal" class="w-full h-full object-cover" loading="lazy" />
               </button>
 
               <?php foreach ( $attachment_ids as $attachment_id ) : ?>
               <button type="button" class="res-thumb" aria-label="Miniatura">
-                <img src="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'gallery_thumbnail' ) ); ?>" data-full-image="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'full' ) ); ?>" alt="Miniatura" class="w-full h-full object-cover" />
+                <img src="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'gallery_thumbnail' ) ); ?>" data-full-image="<?php echo esc_url( wp_get_attachment_image_url( $attachment_id, 'full' ) ); ?>" alt="Miniatura" class="w-full h-full object-cover" loading="lazy" />
               </button>
               <?php endforeach; ?>
             </div>
@@ -256,13 +256,13 @@ while ( have_posts() ) :
 
             <div class="flex items-center gap-2">
               <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir en Facebook">
-                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/facebook.svg" alt="" class="w-5 h-5 opacity-70" />
+                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/facebook.svg" alt="" class="w-5 h-5 opacity-70" loading="lazy" />
               </a>
               <a href="https://www.instagram.com/share?url=<?php echo urlencode(get_permalink()); ?>" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir en Instagram">
-                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/instagram.svg" alt="" class="w-5 h-5 opacity-70" />
+                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/instagram.svg" alt="" class="w-5 h-5 opacity-70" loading="lazy" />
               </a>
               <a href="#" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir por WhatsApp">
-                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/whatsapp.svg" alt="" class="w-5 h-5 opacity-70" />
+                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/whatsapp.svg" alt="" class="w-5 h-5 opacity-70" loading="lazy" />
               </a>
             </div>
           </div>

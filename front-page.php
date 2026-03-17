@@ -147,6 +147,7 @@ get_header();
                     <img
                       src="<?php echo esc_url( $image_url ); ?>"
                       alt="<?php echo esc_attr( $product->get_name() ); ?>"
+                      loading="lazy"
                     />
                   </a>
                 </div>
@@ -235,7 +236,7 @@ get_header();
                   ?>
                   <div class="res-partners__item">
                     <a href="<?php echo esc_url( $brand_link ); ?>" aria-label="<?php echo esc_attr( $brand->name ); ?>">
-                      <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $brand->name ); ?>" />
+                      <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $brand->name ); ?>" loading="lazy" />
                     </a>
                   </div>
                   <?php
@@ -292,7 +293,7 @@ get_header();
                 <!-- Media -->
                 <div class="res-fcard__media">
                   <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-                    <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>">
+                    <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" loading="lazy">
                   </a>
                   <span class="res-fcard__badge">Uso diario</span>
                 </div>

@@ -190,20 +190,20 @@
     })();
 
 
-// Footer link abre el menú lateral
-(() => {
-  const footerDrawerLinks = document.querySelectorAll('[data-open-drawer]');
-  const drawerButton = document.querySelector('[data-drawer-open]');
+    // Footer link abre el menú lateral
+    (() => {
+      const footerDrawerLinks = document.querySelectorAll('[data-open-drawer]');
+      const drawerButton = document.querySelector('[data-drawer-open]');
 
-  if (!drawerButton) return;
+      if (!drawerButton) return;
 
-  footerDrawerLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      drawerButton.click(); // reutiliza la lógica existente
-    });
-  });
-})();
+      footerDrawerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          drawerButton.click(); // reutiliza la lógica existente
+        });
+      });
+    })();
 
 
     /* =========================
@@ -280,6 +280,8 @@
 
 /* =========================================================
    HERO RESPONSIVE IMAGES (mobile/desktop backgrounds)
+   Deferred loading: only the active slide is loaded on init.
+   Other slides have their background applied when navigated to.
 ========================================================= */
 (() => {
   const hero = document.querySelector(".res-hero");
@@ -288,41 +290,44 @@
   const slides = Array.from(hero.querySelectorAll(".res-hero__slide"));
   if (slides.length === 0) return;
 
-  // Breakpoint: usá el mismo criterio que tu layout (Tailwind sm=640)
   const mq = window.matchMedia("(max-width: 640px)");
 
-  const applyHeroBackgrounds = () => {
+  // Apply background to a single slide (called on init for active, on-demand for others)
+  const applySlideBackground = (slide) => {
     const isMobile = mq.matches;
+    const desktop = slide.getAttribute("data-bg-desktop");
+    const mobile = slide.getAttribute("data-bg-mobile");
+    const src = (isMobile ? mobile : desktop) || desktop || mobile;
+    if (!src) return;
+    if (slide.dataset.bgApplied === src) return;
+    slide.style.backgroundImage = `url('${src}')`;
+    slide.dataset.bgApplied = src;
+  };
 
+  // On init: only load the first active slide (saves bandwidth for all other slides)
+  slides.forEach((slide, i) => {
+    if (i === 0 || slide.classList.contains("is-active")) {
+      applySlideBackground(slide);
+    }
+  });
+
+  // Expose helper so the slider can call it when navigating
+  hero._applySlideBackground = applySlideBackground;
+
+  // Re-apply on breakpoint change (only already-loaded slides)
+  const onBreakpointChange = () => {
     slides.forEach((slide) => {
-      const desktop = slide.getAttribute("data-bg-desktop");
-      const mobile = slide.getAttribute("data-bg-mobile");
-
-      // Elegimos la mejor disponible
-      const src = (isMobile ? mobile : desktop) || desktop || mobile;
-      if (!src) return;
-
-      // Evita re-aplicar si ya está
-      const current = slide.dataset.bgApplied;
-      if (current === src) return;
-
-      slide.style.backgroundImage = `url('${src}')`;
-      slide.dataset.bgApplied = src;
+      if (slide.dataset.bgApplied) applySlideBackground(slide);
     });
   };
 
-  // Init + cambios de breakpoint
-  applyHeroBackgrounds();
-
-  // Safari/old: addListener fallback
   if (typeof mq.addEventListener === "function") {
-    mq.addEventListener("change", applyHeroBackgrounds);
+    mq.addEventListener("change", onBreakpointChange);
   } else if (typeof mq.addListener === "function") {
-    mq.addListener(applyHeroBackgrounds);
+    mq.addListener(onBreakpointChange);
   }
 
-  // Por si el usuario rota pantalla / resize raro
-  window.addEventListener("resize", () => applyHeroBackgrounds(), { passive: true });
+  window.addEventListener("resize", onBreakpointChange, { passive: true });
 })();
 
 
@@ -360,6 +365,8 @@
 
   function goTo(i) {
     index = (i + slides.length) % slides.length;
+    // Lazy-load background of the newly-active slide on demand
+    if (hero._applySlideBackground) hero._applySlideBackground(slides[index]);
     render();
   }
 
@@ -412,7 +419,7 @@
 })();
 
 
-  // CARRUSEL MARCAS 
+// CARRUSEL MARCAS 
 
 
 (() => {
@@ -503,7 +510,7 @@
   if (!wrap) return;
 
   const btnMinus = wrap.querySelector('button[aria-label="Restar"]');
-  const btnPlus  = wrap.querySelector('button[aria-label="Sumar"]');
+  const btnPlus = wrap.querySelector('button[aria-label="Sumar"]');
 
   const clamp = (n) => {
     const min = parseInt(qtyInput.min || "1", 10);
@@ -513,7 +520,7 @@
   const setVal = (n) => { qtyInput.value = String(clamp(n)); };
 
   btnMinus?.addEventListener("click", () => setVal(parseInt(qtyInput.value || "1", 10) - 1));
-  btnPlus?.addEventListener("click",  () => setVal(parseInt(qtyInput.value || "1", 10) + 1));
+  btnPlus?.addEventListener("click", () => setVal(parseInt(qtyInput.value || "1", 10) + 1));
 
   qtyInput.addEventListener("input", () => setVal(parseInt(qtyInput.value || "1", 10)));
 })();

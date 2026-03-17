@@ -96,7 +96,7 @@ $brand = get_queried_object();
 
             <div class="res-card__media">
               <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="res-card__link">
-                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
+                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" loading="lazy" />
               </a>
             </div>
 

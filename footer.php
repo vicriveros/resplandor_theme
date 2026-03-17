@@ -9,7 +9,7 @@
     <!-- Col 1: Marca + newsletter -->
     <div class="res-footer__col res-footer__brand">
       <a class="res-footer__logo" href="#">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Resplandor" />
+        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo_resplandor.png" alt="Resplandor" loading="lazy" />
       </a>
 
       <p class="res-footer__desc">
@@ -58,31 +58,31 @@
 
       <ul class="res-footer__contact">
         <li class="res-footer__contactItem">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/mapa.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/mapa.svg" alt="" loading="lazy" />
           <span>Dir. Avda. Mcal. Lopez Ruta Villeta Guarambare - Paraguay</span>
         </li>
         <li class="res-footer__contactItem">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/llamar.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/llamar.svg" alt="" loading="lazy" />
           <span>(+595 21) 328 5079</span>
         </li>
         <li class="res-footer__contactItem">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/correo-electronico.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/correo-electronico.svg" alt="" loading="lazy" />
           <a href="mailto:ventas@resplandor.com.py">ventas@resplandor.com.py</a>
         </li>
       </ul>
 
       <div class="res-footer__social">
         <a class="res-footer__socialBtn" href="https://www.facebook.com/resplandorsrlpy" target="_blank" aria-label="Facebook">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/facebook.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/facebook.svg" alt="" loading="lazy" />
         </a>
         <a class="res-footer__socialBtn" href="https://www.instagram.com/resplandorsrl/" target="_blank" aria-label="Instagram">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/instagram.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/instagram.svg" alt="" loading="lazy" />
         </a>
         <a class="res-footer__socialBtn" href="#" aria-label="TikTok">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/tik-tok.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/tik-tok.svg" alt="" loading="lazy" />
         </a>
         <a class="res-footer__socialBtn" href="https://wa.me/595981243277" target="_blank" aria-label="WhatsApp">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/whatsapp.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/whatsapp.svg" alt="" loading="lazy" />
         </a>
       </div>
     </div>
@@ -95,31 +95,31 @@
 
       <ul class="res-footer__contact">
         <li class="res-footer__contactItem">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/mapa.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/mapa.svg" alt="" loading="lazy" />
           <span>Dir. Avda. Mcal. Lopez Ruta Villeta Guarambare - Paraguay</span>
         </li>
         <li class="res-footer__contactItem">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/llamar.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/llamar.svg" alt="" loading="lazy" />
           <span>(+595 21) 328 5079</span>
         </li>
         <li class="res-footer__contactItem">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/correo-electronico.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/correo-electronico.svg" alt="" loading="lazy" />
           <a href="mailto:ventas@resplandor.com.py">ventas@resplandor.com.py</a>
         </li>
       </ul>
 
       <div class="res-footer__social">
         <a class="res-footer__socialBtn" href="#" aria-label="Facebook">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/facebook.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/facebook.svg" alt="" loading="lazy" />
         </a>
         <a class="res-footer__socialBtn" href="#" aria-label="Instagram">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/instagram.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/instagram.svg" alt="" loading="lazy" />
         </a>
         <a class="res-footer__socialBtn" href="#" aria-label="TikTok">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/tik-tok.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/tik-tok.svg" alt="" loading="lazy" />
         </a>
         <a class="res-footer__socialBtn" href="#" aria-label="WhatsApp">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/whatsapp.svg" alt="" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/whatsapp.svg" alt="" loading="lazy" />
         </a>
       </div>
     </details>
