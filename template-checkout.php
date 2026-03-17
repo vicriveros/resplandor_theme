@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 ?>
 
-                const message = `*Nuevo Pedido - Resplandor*\n\n` +
+                const message = `*Nuevo Pedido desde la web - Resplandor*\n\n` +
                                 `*Nombre:* ${name}\n` +
                                 `*Teléfono:* ${phone}\n` +
                                 `*Dirección:* ${address}\n\n` +

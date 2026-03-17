@@ -240,7 +240,7 @@ while ( have_posts() ) :
                   </button>
                     
                   <!-- WhatsApp Link (Placeholder for now) -->
-                  <a href="https://wa.me/595XXXXXXXXX" target="_blank" rel="noopener" class="res-whatsapp" aria-label="Consultar por WhatsApp">
+                  <a href="https://wa.me/595981243277?text=Hola,%20quiero%20consultar%20por%20el%20producto:%20<?php echo urlencode( get_the_title() ); ?>" target="_blank" rel="noopener" class="res-whatsapp" aria-label="Consultar por WhatsApp">
                     <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/whatsapp.svg" alt="WhatsApp" class="res-whatsapp__icon" />
                     <span class="res-whatsapp__text">Consultar producto por WhatsApp</span>
                   </a>
@@ -255,10 +255,10 @@ while ( have_posts() ) :
             <span class="text-sm font-semibold text-neutral-700">Compartir:</span>
 
             <div class="flex items-center gap-2">
-              <a href="#" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir en Facebook">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir en Facebook">
                 <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/facebook.svg" alt="" class="w-5 h-5 opacity-70" />
               </a>
-              <a href="#" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir en Instagram">
+              <a href="https://www.instagram.com/share?url=<?php echo urlencode(get_permalink()); ?>" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir en Instagram">
                 <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/instagram.svg" alt="" class="w-5 h-5 opacity-70" />
               </a>
               <a href="#" class="w-10 h-10 rounded-xl border border-res-gray/60 bg-white grid place-items-center hover:border-res-green/60 hover:bg-res-green/5 transition" aria-label="Compartir por WhatsApp">
