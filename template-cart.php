@@ -177,6 +177,26 @@ get_header();
                                     <span>Envío</span>
                                     <span class="text-xs text-res-text/70 italic text-right">Calculado al confirmar</span>
                                 </div>
+
+                                <?php 
+                                $cart_subtotal_float = WC()->cart->cart_contents_total;
+                                if ( $cart_subtotal_float > 65001 ) : 
+                                    $discount_val = $cart_subtotal_float * 0.10;
+                                ?>
+                                <div class="flex justify-between items-center text-res-green font-medium">
+                                    <span>Descuento 10%</span>
+                                    <span>-<?php echo wc_price( $discount_val ); ?></span>
+                                </div>
+                                <?php endif; ?>
+                                
+                                <?php foreach ( WC()->cart->get_fees() as $fee ) : 
+                                    if ( $fee->name === 'Descuento 10%' ) continue; // Skip since we manually displayed it
+                                ?>
+                                <div class="flex justify-between items-center text-res-green font-medium">
+                                    <span><?php echo esc_html( $fee->name ); ?></span>
+                                    <span><?php wc_cart_totals_fee_html( $fee ); ?></span>
+                                </div>
+                                <?php endforeach; ?>
                                 
                                 <div class="pt-4 border-t border-res-gray/30 flex justify-between items-center text-res-green">
                                     <span class="font-extrabold text-lg">Total del pedido</span>

@@ -96,3 +96,19 @@ add_filter('acf/settings/load_json', function($paths) {
     $paths[] = get_template_directory() . '/acf-json';
     return $paths;
 });
+
+/**
+ * Apply 10% discount if subtotal is greater than 65001
+ */
+function resplandor_apply_custom_discount( $cart ) {
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
+
+    // Use cart_contents_total for the float value of the subtotal without taxes
+    $subtotal = $cart->cart_contents_total;
+
+    if ( $subtotal > 65001 ) {
+        $discount = $subtotal * 0.10;
+        $cart->add_fee( 'Descuento 10%', -$discount );
+    }
+}
+add_action( 'woocommerce_cart_calculate_fees', 'resplandor_apply_custom_discount', 10, 1 );

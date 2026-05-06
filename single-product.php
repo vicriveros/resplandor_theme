@@ -303,10 +303,10 @@ if ( ! empty( $related_products ) ) :
   <div class="res-container py-10">
     <header class="res-featured__head mb-12 text-left">
       <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-neutral-800">
-        Productos relacionados
+        Otras presentaciones y productos relacionados
       </h2>
       <p class="mt-2 text-res-text">
-        Productos que suelen comprarse junto a este artículo.
+        Variaciones del producto o productos que suelen comprarse junto a este.
       </p>
     </header>
 

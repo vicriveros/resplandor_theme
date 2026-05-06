@@ -168,6 +168,26 @@ if ( WC()->cart->is_empty() ) {
                                 <span class="text-neutral-800"><?php wc_cart_totals_subtotal_html(); ?></span>
                             </div>
                             
+                            <?php 
+                            $cart_subtotal_float = WC()->cart->cart_contents_total;
+                            if ( $cart_subtotal_float > 65001 ) : 
+                                $discount_val = $cart_subtotal_float * 0.10;
+                            ?>
+                            <div class="flex justify-between items-center text-res-green font-medium">
+                                <span>Descuento 10%</span>
+                                <span>-<?php echo wc_price( $discount_val ); ?></span>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php foreach ( WC()->cart->get_fees() as $fee ) : 
+                                if ( $fee->name === 'Descuento 10%' ) continue; // Skip since we manually displayed it
+                            ?>
+                            <div class="flex justify-between items-center text-res-green font-medium">
+                                <span><?php echo esc_html( $fee->name ); ?></span>
+                                <span><?php wc_cart_totals_fee_html( $fee ); ?></span>
+                            </div>
+                            <?php endforeach; ?>
+                            
                             <div class="pt-4 flex justify-between items-center text-res-green">
                                 <span class="font-extrabold text-lg">Total</span>
                                 <span class="font-extrabold text-2xl"><?php wc_cart_totals_order_total_html(); ?></span>
@@ -261,6 +281,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 foreach ( WC()->cart->get_cart() as $cart_item ) {
                     $_product = $cart_item['data'];
                     echo "itemsList += '- " . esc_js( $_product->get_name() ) . " x " . $cart_item['quantity'] . "\\n';";
+                }
+                
+                $cart_subtotal_float = WC()->cart->cart_contents_total;
+                if ( $cart_subtotal_float > 65001 ) {
+                    $discount_val = $cart_subtotal_float * 0.10;
+                    $discount_str = strip_tags(wc_price($discount_val));
+                    echo "let discountRaw = '" . esc_js($discount_str) . "';\n";
+                    echo "discountRaw = discountRaw.replace(/&#[0-9]+;/g, '').replace(/&nbsp;/g, ' ');\n";
+                    echo "itemsList += '\\n*Descuento 10%*: -' + discountRaw + '\\n';\n";
                 }
                 ?>
 
